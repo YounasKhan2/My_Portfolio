@@ -10,29 +10,29 @@ function Homepage() {
   const cardsData = [
     {title: "C++", description: "Expertise in object-oriented programming and building efficient, performance-driven applications."},
     {title: "Java | Java Swing", description: "Skilled in Java for back-end development and GUI creation with Java Swing for interactive applications."},
-    {title: "Javascript",description: "Proficient in JavaScript for dynamic, responsive web interactions and enhancing user experience."},
-    {title: "HTML",description: "Strong foundation in HTML for structuring and presenting web content with semantic clarity."},
+    {title: "Javascript", description: "Proficient in JavaScript for dynamic, responsive web interactions and enhancing user experience."},
+    {title: "HTML", description: "Strong foundation in HTML for structuring and presenting web content with semantic clarity."},
     {title: "CSS", description: "Skilled in CSS for creating visually appealing, responsive, and animated web interfaces."},
-    {title: "JS Next",description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
-    {title: "Tailwind CSS",description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
-    {title: "My SQL",description: "Proficient in MySQL for database management, queries, and data optimization"},
-    {title: "Video Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
-    {title: "Graphics Designer",description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
-    {title: "MS Office Suite",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
+    {title: "JS Next", description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
+    {title: "Tailwind CSS", description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
+    {title: "My SQL", description: "Proficient in MySQL for database management, queries, and data optimization."},
+    {title: "Video Editing", description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
+    {title: "Graphics Designer", description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
+    {title: "MS Office Suite", description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
   ];
 
   const projectsData = [
-    {title: "C++",description: "Expertise in object-oriented programming and building efficient, performance-driven applications."},
-    {title: "Java | Java Swing",description: "Skilled in Java for back-end development and GUI creation with Java Swing for interactive applications."},
-    {title: "Javascript",description: "Proficient in JavaScript for dynamic, responsive web interactions and enhancing user experience."},
+    {title: "C++", description: "Expertise in object-oriented programming and building efficient, performance-driven applications."},
+    {title: "Java | Java Swing", description: "Skilled in Java for back-end development and GUI creation with Java Swing for interactive applications."},
+    {title: "Javascript", description: "Proficient in JavaScript for dynamic, responsive web interactions and enhancing user experience."},
     {title: "HTML", description: "Strong foundation in HTML for structuring and presenting web content with semantic clarity."},
-    {title: "CSS",description: "Skilled in CSS for creating visually appealing, responsive, and animated web interfaces."},
-    {title: "JS Next",description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
-    {title: "Tailwind CSS",description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
-    {title: "My SQL",description: "Proficient in MySQL for database management, queries, and data optimization"},
-    {title: "Video Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
-    {title: "Graphics Designer",description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
-    {title: "MS Office Suite",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
+    {title: "CSS", description: "Skilled in CSS for creating visually appealing, responsive, and animated web interfaces."},
+    {title: "JS Next", description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
+    {title: "Tailwind CSS", description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
+    {title: "My SQL", description: "Proficient in MySQL for database management, queries, and data optimization."},
+    {title: "Video Editing", description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
+    {title: "Graphics Designer", description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
+    {title: "MS Office Suite", description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
   ];
 
   const homeRef = useRef(null);
@@ -107,8 +107,8 @@ function Homepage() {
         ))}
       </div>
 
-      <div ref={contactRef} className='h-screen flex flex-col pt-72 items-center'>
-        <h1 className='text-5xl text-sky-500 font-bold'>Contacts</h1>
+      <div ref={contactRef} className='h-screen flex flex-col items-center'>
+        <h1 className='text-5xl text-sky-500 font-bold mb-8'>Contact Me</h1>
         <p className='text-xl text-justify font-bold mt-2'>You can connect with me through my social media:</p>
         <div className='flex gap-5 mt-5'>
           <a href="https://wa.me/923340354819" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
