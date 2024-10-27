@@ -107,7 +107,7 @@ function Homepage() {
         ))}
       </div>
 
-      <div ref={contactRef} className='h-screen flex flex-col items-center'>
+      <div ref={contactRef} className='flex flex-col items-center justify-center mt-96 mb-60'>
         <h1 className='text-5xl text-sky-500 font-bold mb-8'>Contact Me</h1>
         <p className='text-xl text-justify font-bold mt-2'>You can connect with me through my social media:</p>
         <div className='flex gap-5 mt-5'>
