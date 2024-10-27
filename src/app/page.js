@@ -1,9 +1,9 @@
 'use client';
 import React, { useRef } from 'react';
+import Image from 'next/image'; // Import the Image component
 import Card from './components/Cards'; 
 import Project from './components/Projects';
 import { FaWhatsapp, FaLinkedin, FaInstagram, FaGithub, FaRegCommentDots } from 'react-icons/fa';
-
 
 function Homepage() {
 
@@ -16,9 +16,9 @@ function Homepage() {
     {title: "JS Next",description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
     {title: "Tailwind CSS",description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
     {title: "My SQL",description: "Proficient in MySQL for database management, queries, and data optimization"},
-    {title: "VIdeo Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
-    {title: "Graphics Designer",description: " Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
-    {title: "Ms Office Suit",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
+    {title: "Video Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
+    {title: "Graphics Designer",description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
+    {title: "MS Office Suite",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
   ];
 
   const projectsData = [
@@ -30,9 +30,9 @@ function Homepage() {
     {title: "JS Next",description: "Knowledge of modern JavaScript frameworks and libraries for cutting-edge, scalable web development."},
     {title: "Tailwind CSS",description: "Efficient in using Tailwind CSS for rapid UI development with a utility-first approach."},
     {title: "My SQL",description: "Proficient in MySQL for database management, queries, and data optimization"},
-    {title: "VIdeo Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
-    {title: "Graphics Designer",description: " Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
-    {title: "Ms Office Suit",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
+    {title: "Video Editing",description: "Creative skills in video editing for storytelling, brand promotion, and visual content creation."},
+    {title: "Graphics Designer",description: "Experienced in creating visually impactful designs using tools like Adobe Photoshop and Corel Draw."},
+    {title: "MS Office Suite",description: "Strong command over MS Office Suite for documentation, presentations, and data analysis."},
   ];
 
   const homeRef = useRef(null);
@@ -68,13 +68,18 @@ function Homepage() {
       <div className='flex items-center h-screen text-white gap-5'>
         <div className='ml-20 flex flex-col w-1/2 text-left'>
           <h1 className='text-5xl font-bold mb-3 text-sky-500'>Welcome To My Portfolio</h1>
-          <p className='text-xl text-justify font-bold' style={{width: '550px'}}>Hello! I'm Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
+          <p className='text-xl text-justify font-bold' style={{width: '550px'}}>Hello! I&apos;m Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
           <button className='text-center px-5 py-3 bg-sky-500 text-xl w-32 border rounded-lg mt-10 font-bold transition-all duration-300 transform hover:scale-125' style={{fontFamily: 'unset'}}>Hire Me</button>
         </div>
 
         <div style={{ width: '350px', height: '350px' }}>
-          <img src="/WhatsApp Image 2024-09-09 at 03.19.43_86566a96.jpg" alt=""
-            className="ml-96 -mt-20 border rounded-lg transition-all duration-500 transform hover:scale-105 shadow-[0px_0px_15px_5px_rgba(14,165,233,0.8),0px_0px_60px_15px_rgba(14,165,233,0.5),0px_0px_100px_30px_rgba(14,165,233,0.3)]"/>
+          <Image 
+            src="/WhatsApp Image 2024-09-09 at 03.19.43_86566a96.jpg" 
+            alt="Profile Picture" 
+            width={350} 
+            height={350} 
+            className="ml-96 -mt-20 border rounded-lg transition-all duration-500 transform hover:scale-105 shadow-[0px_0px_15px_5px_rgba(14,165,233,0.8),0px_0px_60px_15px_rgba(14,165,233,0.5),0px_0px_100px_30px_rgba(14,165,233,0.3)]" 
+          />
         </div>
       </div>
 
@@ -82,7 +87,7 @@ function Homepage() {
       <div ref={aboutRef} className='h-screen ml-20 mr-20 flex flex-col justify-center items-center'>
         <h1 className='text-5xl text-sky-500 font-bold mb-8'>About Me</h1>
         <p className='text-xl text-justify leading-loose font-semibold'>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque illum voluptates quas id, dolorem debitis. Reprehenderit, quia! Tenetur quidem sequi neque sunt assumenda est, quasi sed eum nostrum nemo laboriosam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque illum voluptates quas id, dolorem debitis. Reprehenderit, quia! Tenetur quidem sequi neque sunt assumenda est, quasi sed eum nostrum nemo laboriosam.
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sint, illo optio corrupti vel dicta inventore quia libero magnam odio. Saepe aliquam eos beatae facilis commodi iure corporis aperiam aspernatur.
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta nihil earum odit aspernatur, fugit ipsum aliquid, blanditiis nostrum libero natus velit eos consectetur laborum dolorem hic? Sapiente suscipit eligendi a.
         </p>
@@ -104,22 +109,22 @@ function Homepage() {
 
       <div ref={contactRef} className='h-screen flex flex-col pt-72 items-center'>
         <h1 className='text-5xl text-sky-500 font-bold'>Contacts</h1>
-        <p className='font-semibold text-l mb-10 text-sky-500'>Get in touch with me via email or find me on social media. <span className='text-red-600'>Checkout GitHub for projects.</span></p>
-        <div className='flex gap-10'>
-          <a href="https://wa.me/+923130812324" target="_blank" rel="noopener noreferrer">
-            <FaWhatsapp className='text-4xl text-green-500 transition-transform duration-300 hover:scale-125 hover:text-sky-500' />
+        <p className='text-xl text-justify font-bold mt-2'>You can connect with me through my social media:</p>
+        <div className='flex gap-5 mt-5'>
+          <a href="https://wa.me/923340354819" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
+            <FaWhatsapp size={40} />
           </a>
-          <a href="https://www.linkedin.com/in/your_profile" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin className='text-4xl text-blue-700 transition-transform duration-300 hover:scale-125 hover:text-sky-500' />
+          <a href="https://www.linkedin.com/in/mr-khan-65b123241" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
+            <FaLinkedin size={40} />
           </a>
-          <a href="https://www.instagram.com/your_profile" target="_blank" rel="noopener noreferrer">
-            <FaInstagram className='text-4xl text-pink-600 transition-transform duration-300 hover:scale-125 hover:text-sky-500' />
+          <a href="https://www.instagram.com/younas._k._k_/" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
+            <FaInstagram size={40} />
           </a>
-          <a href="https://github.com/your_username" target="_blank" rel="noopener noreferrer">
-            <FaGithub className='text-4xl text-gray-800 transition-transform duration-300 hover:scale-125 hover:text-sky-500' />
+          <a href="https://github.com/YounasKhan65" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
+            <FaGithub size={40} />
           </a>
-          <a href="mailto:younaskk120@gmail.com" target="_blank" rel="noopener noreferrer">
-            <FaRegCommentDots className='text-4xl text-sky-500 transition-transform duration-300 hover:scale-125 hover:text-sky-500' />
+          <a href="https://www.linkedin.com/in/mr-khan-65b123241" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
+            <FaRegCommentDots size={40} />
           </a>
         </div>
       </div>
