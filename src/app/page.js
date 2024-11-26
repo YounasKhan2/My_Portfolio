@@ -1,12 +1,11 @@
 'use client';
 import React, { useRef } from 'react';
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image'; 
 import Card from './components/Cards'; 
 import Project from './components/Projects';
 import { FaWhatsapp, FaLinkedin, FaInstagram, FaGithub, FaRegCommentDots } from 'react-icons/fa';
 
 function Homepage() {
-
   const cardsData = [
     {title: "C++", description: "Expertise in object-oriented programming and building efficient, performance-driven applications."},
     {title: "Java | Java Swing", description: "Skilled in Java for back-end development and GUI creation with Java Swing for interactive applications."},
@@ -54,7 +53,7 @@ function Homepage() {
 
       <div className='flex justify-center'>
         <nav className='w-full flex items-center px-8 text-white font-semibold'>
-          <ul className='flex gap-24 text-xl mx-auto'>
+          <ul className='flex gap-12 sm:gap-16 lg:gap-24 text-xl mx-auto'>
             <li onClick={() => scrollToSection(homeRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Home</li>
             <li onClick={() => scrollToSection(aboutRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>About</li>
             <li onClick={() => scrollToSection(skillsRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Skills</li>
@@ -65,66 +64,66 @@ function Homepage() {
         </nav>
       </div>
 
-      <div className='flex items-center h-screen text-white gap-5'>
-        <div className='ml-20 flex flex-col w-1/2 text-left'>
-          <h1 className='text-5xl font-bold mb-3 text-sky-500'>Welcome To My Portfolio</h1>
-          <p className='text-xl text-justify font-bold' style={{width: '550px'}}>Hello! I&apos;m Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
+      {/* Hero Section */}
+      <div className='flex flex-col sm:flex-row items-center h-screen text-white gap-5'>
+        <div className='ml-5 sm:ml-20 flex flex-col w-full sm:w-1/2 text-left'>
+          <h1 className='text-4xl sm:text-5xl font-bold mb-3 text-sky-500'>Welcome To My Portfolio</h1>
+          <p className='text-xl text-justify font-bold sm:w-3/4 lg:w-2/3'>Hello! I&apos;m Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
           <button className='text-center px-5 py-3 bg-sky-500 text-xl w-32 border rounded-lg mt-10 font-bold transition-all duration-300 transform hover:scale-125' style={{fontFamily: 'unset'}}>Hire Me</button>
         </div>
 
-        <div style={{ width: '350px', height: '350px' }}>
+        <div className='mt-5 sm:mt-0'>
           <Image 
-            src="/WhatsApp Image 2024-09-09 at 03.19.43_86566a96.jpg" 
+            src="/WhatsApp_Image_2024-09-09_at_03.19.43_86566a96.jpg" 
             alt="Profile Picture" 
             width={350} 
             height={350} 
-            className="ml-96 -mt-20 border rounded-lg transition-all duration-500 transform hover:scale-105 shadow-[0px_0px_15px_5px_rgba(14,165,233,0.8),0px_0px_60px_15px_rgba(14,165,233,0.5),0px_0px_100px_30px_rgba(14,165,233,0.3)]" 
+            className="ml-0 sm:ml-16 sm:-mt-20 rounded-lg transition-all duration-500 transform hover:scale-105 shadow-lg" 
           />
         </div>
       </div>
 
       {/* About Section */}
-      <div ref={aboutRef} className='h-screen ml-20 mr-20 flex flex-col justify-center items-center'>
-        <h1 className='text-5xl text-sky-500 font-bold mb-8'>About Me</h1>
-        <p className='text-xl text-justify leading-loose font-semibold'>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque illum voluptates quas id, dolorem debitis. Reprehenderit, quia! Tenetur quidem sequi neque sunt assumenda est, quasi sed eum nostrum nemo laboriosam.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus sint, illo optio corrupti vel dicta inventore quia libero magnam odio. Saepe aliquam eos beatae facilis commodi iure corporis aperiam aspernatur.
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta nihil earum odit aspernatur, fugit ipsum aliquid, blanditiis nostrum libero natus velit eos consectetur laborum dolorem hic? Sapiente suscipit eligendi a.
+      <div ref={aboutRef} className='h-screen ml-5 sm:ml-20 mr-5 sm:mr-20 flex flex-col justify-center items-center'>
+        <h1 className='text-4xl sm:text-5xl text-sky-500 font-bold mb-8'>About Me</h1>
+        <p className='text-xl sm:text-justify leading-loose font-semibold sm:w-3/4'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque illum voluptates quas id, dolorem debitis...
         </p>
       </div>
 
       {/* Skills Section */}
-      <div ref={skillsRef} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 h-screen p-10 ml-10 mr-10 gap-5 mb-6'>
+      <div ref={skillsRef} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 p-6 sm:p-10 ml-5 sm:ml-10 mr-5 sm:mr-10'>
         {cardsData.map((card, index) => (
           <Card key={index} title={card.title} description={card.description} />
         ))}
       </div>
 
       {/* Projects Section */}
-      <div ref={projectsRef} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 h-screen p-10 ml-10 mr-10 gap-5 mb-6'>
+      <div ref={projectsRef} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 p-6 sm:p-10 ml-5 sm:ml-10 mr-5 sm:mr-10'>
         {projectsData.map((project, index) => (
           <Project key={index} title={project.title} description={project.description} />
         ))}
       </div>
 
-      <div ref={contactRef} className='flex flex-col items-center justify-center mt-96 mb-60'>
-        <h1 className='text-5xl text-sky-500 font-bold mb-8'>Contact Me</h1>
-        <p className='text-xl text-justify font-bold mt-2'>You can connect with me through my social media:</p>
+      {/* Contact Section */}
+      <div ref={contactRef} className='flex flex-col items-center justify-center mt-20 sm:mt-40 mb-40'>
+        <h1 className='text-4xl sm:text-5xl text-sky-500 font-bold mb-8'>Contact Me</h1>
+        <p className='text-xl text-center sm:text-justify font-bold mt-2'>You can connect with me through my social media:</p>
         <div className='flex gap-5 mt-5'>
           <a href="https://wa.me/923340354819" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
-            <FaWhatsapp size={40} />
+            <FaWhatsapp size={30} />
           </a>
           <a href="https://www.linkedin.com/in/mr-khan-65b123241" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
-            <FaLinkedin size={40} />
+            <FaLinkedin size={30} />
           </a>
           <a href="https://www.instagram.com/younas._k._k_/" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
-            <FaInstagram size={40} />
+            <FaInstagram size={30} />
           </a>
           <a href="https://github.com/YounasKhan65" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
-            <FaGithub size={40} />
+            <FaGithub size={30} />
           </a>
           <a href="https://www.linkedin.com/in/mr-khan-65b123241" target="_blank" rel="noopener noreferrer" className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125'>
-            <FaRegCommentDots size={40} />
+            <FaRegCommentDots size={30} />
           </a>
         </div>
       </div>
