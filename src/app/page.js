@@ -52,17 +52,45 @@ function Homepage() {
       </div>
 
       <div className='flex justify-center'>
-        <nav className='w-full flex items-center px-8 text-white font-semibold'>
-          <ul className='flex gap-12 sm:gap-16 lg:gap-24 text-xl mx-auto'>
-            <li onClick={() => scrollToSection(homeRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Home</li>
-            <li onClick={() => scrollToSection(aboutRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>About</li>
-            <li onClick={() => scrollToSection(skillsRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Skills</li>
-            <li onClick={() => scrollToSection(projectsRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Projects</li>
-            <li onClick={() => scrollToSection(contactRef)} className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'>Contact</li>
-          </ul>
-          <button className='border px-8 py-1 rounded-lg bg-sky-500 text-white transition-all duration-300 transform hover:scale-125'>CV</button>
-        </nav>
-      </div>
+  <nav className='w-full flex flex-col sm:flex-row items-center px-8 py-4 text-white font-semibold'>
+    <ul className='flex flex-col sm:flex-row sm:gap-12 gap-8 text-xl mx-auto sm:text-base'>
+      <li
+        onClick={() => scrollToSection(homeRef)}
+        className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'
+      >
+        Home
+      </li>
+      <li
+        onClick={() => scrollToSection(aboutRef)}
+        className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'
+      >
+        About
+      </li>
+      <li
+        onClick={() => scrollToSection(skillsRef)}
+        className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'
+      >
+        Skills
+      </li>
+      <li
+        onClick={() => scrollToSection(projectsRef)}
+        className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'
+      >
+        Projects
+      </li>
+      <li
+        onClick={() => scrollToSection(contactRef)}
+        className='hover:text-sky-500 transition-all duration-300 transform hover:scale-125 cursor-pointer'
+      >
+        Contact
+      </li>
+    </ul>
+    <button className='border px-8 py-2 rounded-lg bg-sky-500 text-white transition-all duration-300 transform hover:scale-125 mt-4 sm:mt-0 sm:text-lg'>
+      CV
+    </button>
+  </nav>
+</div>
+
 
       {/* Hero Section */}
       <div className='flex flex-col sm:flex-row items-center h-screen text-white gap-5'>
