@@ -96,7 +96,7 @@ function Homepage() {
       <div className='flex flex-col sm:flex-row items-center h-screen text-white gap-5'>
         <div className='ml-5 sm:ml-20 flex flex-col w-full sm:w-1/2 text-left'>
           <h1 className='text-4xl sm:text-5xl font-bold mb-3 text-sky-500'>Welcome To My Portfolio</h1>
-          <p className='text-xl text-justify font-bold sm:w-3/4 lg:w-2/3'>Hello! I&apos;m Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
+          <p className='text-xl text-justify font-bold sm:w-3/4 lg:w-2/3'>Hello! I'm Muhammad Younas, a passionate Web Developer and Designer. Explore my projects and skills, and feel free to get in touch!</p>
           <button className='text-center px-5 py-3 bg-sky-500 text-xl w-32 border rounded-lg mt-10 font-bold transition-all duration-300 transform hover:scale-125' style={{fontFamily: 'unset'}}>Hire Me</button>
         </div>
 
