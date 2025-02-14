@@ -1,21 +1,63 @@
+/* File: src/styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 0 0% 100%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Sidebar always visible on desktop */
+@media (min-width: 1024px) {
+  .sidebar-desktop {
+    transform: translateX(0) !important;
+  }
+}
+
+/* Layout structure fixes */
+.main-content {
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Z-index hierarchy */
+.sidebar-layer {
+  z-index: 50;
+}
+
+.header-layer {
+  z-index: 40;
+}
+
+.content-layer {
+  z-index: 30;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
