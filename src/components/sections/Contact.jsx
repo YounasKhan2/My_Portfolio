@@ -1,4 +1,3 @@
-// File: src/components/sections/Contact.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -10,11 +9,12 @@ import {
   Linkedin, 
   Instagram 
 } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    from_name: '',
+    from_email: '',
     subject: '',
     message: ''
   });
@@ -32,27 +32,44 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+  
+    // Get current date in a readable format
+    const currentDate = new Date().toLocaleString('en-US', {
+      timeZone: 'Asia/Karachi',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
 
     try {
-      await emailjs.sendForm(
-        'service_ts0q54e',
-        'template_q52u2ur',
-        e.target,
-        'D2jtBmOVtrO3lc0-F'
+      const response = await emailjs.send(
+        'service_ts0q54e',    // Service ID
+        'template_2chn5ls',   // Template ID
+        {
+          from_name: formData.from_name,
+          from_email: formData.from_email,
+          subject: formData.subject,
+          message: formData.message,
+          current_date: currentDate  // Add this line to pass the date
+        },
+        'VAbyDzYrPrPRaoZaB'   // Public Key
       );
 
+      console.log('Email sent successfully:', response);
+
       setFormData({
-        name: '',
-        email: '',
+        from_name: '',
+        from_email: '',
         subject: '',
         message: ''
       });
       alert('Thank you for your message! I will get back to you soon.');
     } catch (error) {
       console.error('Error sending email:', error);
-      alert('An error occurred while sending the message. Please try again later.');
+      alert(`Failed to send message. ${error.text || error.message}`);
     }
-
     setIsSubmitting(false);
   };
 
@@ -184,28 +201,28 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Your Name
                   </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="from_name"
+                    name="from_name"
+                    value={formData.from_name}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="from_email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Your Email
                   </label>
                   <input
                     type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
+                    id="from_email"
+                    name="from_email"
+                    value={formData.from_email}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300"
