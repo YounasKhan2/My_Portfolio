@@ -32,20 +32,28 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Here you would typically send the form data to your backend
-    // For now, we'll just simulate a submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+
+    try {
+      await emailjs.sendForm(
+        'service_ts0q54e',
+        'template_q52u2ur',
+        e.target,
+        'D2jtBmOVtrO3lc0-F'
+      );
+
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      alert('Thank you for your message! I will get back to you soon.');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('An error occurred while sending the message. Please try again later.');
+    }
+
     setIsSubmitting(false);
-    alert('Thank you for your message! I will get back to you soon.');
   };
 
   const contactInfo = [
