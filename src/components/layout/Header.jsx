@@ -12,9 +12,9 @@ import {
 
 const Header = ({ isDarkMode, setIsDarkMode }) => {
   const socialLinks = [
-    { icon: <Github size={20} />, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: <Github size={20} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://instagram.com/yourusername", label: "Instagram" }
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas.k._k.?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" }
   ];
 
   return (
@@ -66,7 +66,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
 
           {/* Contact Button */}
           <motion.a
-            href="mailto:your.email@example.com"
+            href="mailto:younaskk120@gmail.com"
             className="hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-medium transition-colors duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

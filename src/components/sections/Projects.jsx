@@ -20,7 +20,7 @@ const Projects = () => {
       technologies: ["Next.js", "Supabase", "Tailwind CSS", "React Query"],
       image: "/images/projects/admin-panel.jpg",
       category: "web",
-      github: "https://github.com/yourusername/admin-panel",
+      github: "https://github.com/YounasKhan2/NewsApp_AdminPanel.git",
       live: "https://admin-panel-demo.com",
       featured: true,
       details: [
@@ -36,7 +36,7 @@ const Projects = () => {
       technologies: ["Flutter", "Dart", "REST API", "Firebase"],
       image: "/images/projects/news-app.jpg",
       category: "mobile",
-      github: "https://github.com/yourusername/news-app",
+      github: "https://github.com/YounasKhan2/PulseNews.git",
       featured: true,
       details: [
         "Custom news categories",
@@ -46,18 +46,19 @@ const Projects = () => {
       ]
     },
     {
-      title: "Code Review Assistant",
-      description: "AI-powered code review tool built with Python that automatically analyzes code quality, identifies potential issues, and suggests improvements.",
-      technologies: ["Python", "Machine Learning", "NLP", "Git"],
-      image: "/images/projects/code-review.jpg",
-      category: "ai",
-      github: "https://github.com/yourusername/code-review-assistant",
-      featured: true,
-      details: [
-        "Automated code analysis",
-        "Security vulnerability detection",
-        "Code style checking",
-        "Performance optimization suggestions"
+      "title": "Firebase Chat App",
+      "description": "Cross-platform chat application built with Flutter, featuring real-time messaging, Google Sign-In, and Firebase integration.",
+      "technologies": ["Flutter", "Dart", "Firebase", "Google Sign-In", "Cloud Firestore"],
+      "image": "/images/projects/firebase-chat-app.jpg",
+      "category": "mobile",
+      "github": "https://github.com/YounasKhan2/Firebase_ChatApp.git",
+      "featured": true,
+      "details": [
+        "Real-time messaging",
+        "Google Sign-In authentication",
+        "User profile management",
+        "Push notifications",
+        "Media sharing (images, videos, and locations)"
       ]
     },
     {
@@ -66,7 +67,7 @@ const Projects = () => {
       technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
       image: "/images/projects/portfolio.jpg",
       category: "web",
-      github: "https://github.com/yourusername/portfolio",
+      github: "https://github.com/YounasKhan2/My_Portfolio.git",
       live: "https://yourportfolio.com",
       featured: true,
       details: [
@@ -200,7 +201,7 @@ const Projects = () => {
           className="text-center mt-12"
         >
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/YounasKhan2"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"

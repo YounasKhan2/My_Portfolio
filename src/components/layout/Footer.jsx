@@ -4,9 +4,9 @@ import { Github, Linkedin, Instagram, Mail, Phone, MapPin, Star } from 'lucide-r
 
 const Footer = () => {
   const socialLinks = [
-    { icon: <Github size={24} />, href: "https://github.com/yourusername", label: "GitHub" },
+    { icon: <Github size={24} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
     { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Instagram size={24} />, href: "https://instagram.com/yourusername", label: "Instagram" }
+    { icon: <Instagram size={24} />, href: "https://www.instagram.com/younas.k._k.?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" }
   ];
 
   const reviews = [
@@ -82,7 +82,7 @@ const Footer = () => {
             </div>
             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
               <MapPin size={20} />
-              <span>Quetta, Pakistan</span>
+              <span>Lahore, Pakistan</span>
             </div>
           </div>
 

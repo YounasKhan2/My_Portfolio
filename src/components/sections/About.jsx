@@ -4,15 +4,15 @@ import { Code, Briefcase, Book, Users, CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { icon: <Code className="w-5 h-5" />, value: "3+", label: "Years Experience" },
-    { icon: <Briefcase className="w-5 h-5" />, value: "20+", label: "Projects" },
-    { icon: <Book className="w-5 h-5" />, value: "15+", label: "Technologies" },
-    { icon: <Users className="w-5 h-5" />, value: "10+", label: "Clients" }
+    { icon: <Code className="w-5 h-5" />, value: "1.5+", label: "Years Experience" },
+    { icon: <Briefcase className="w-5 h-5" />, value: "6+", label: "Projects" },
+    { icon: <Book className="w-5 h-5" />, value: "10++", label: "Technologies" },
+    { icon: <Users className="w-5 h-5" />, value: "5+", label: "Clients" }
   ];
 
   const keySkills = [
     "Full Stack Web Development",
-    "Mobile App Development",
+    "Flutter Mobile App Development",
     "UI/UX Design",
     "Database Management",
     "API Integration",
@@ -119,13 +119,13 @@ const About = () => {
                 </h3>
                 <div className="space-y-3 text-gray-600 dark:text-gray-300">
                   <p>
-                    <span className="font-medium">Frontend:</span> React.js, Next.js, Tailwind CSS, JavaScript (ES6+), TypeScript
+                    <span className="font-medium">Frontend:</span> Dart, React.js, Next.js, Tailwind CSS, JavaScript (ES6+)
                   </p>
                   <p>
-                    <span className="font-medium">Backend:</span> Node.js, Express, MongoDB, PostgreSQL, REST APIs
+                    <span className="font-medium">Backend:</span> Firebase, Supabase, REST APIs
                   </p>
                   <p>
-                    <span className="font-medium">Tools & Others:</span> Git, Docker, AWS, Firebase, Vercel
+                    <span className="font-medium">Tools & Others:</span> Git, Firebase, Supabase, Vercel
                   </p>
                 </div>
               </motion.div>

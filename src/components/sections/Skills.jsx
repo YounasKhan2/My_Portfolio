@@ -8,48 +8,42 @@ const Skills = () => {
       title: "Frontend Development",
       icon: <Code size={24} />,
       skills: [
-        { name: "React.js", level: 90 },
-        { name: "Next.js", level: 85 },
-        { name: "JavaScript", level: 90 },
-        { name: "TypeScript", level: 80 },
+        { name: "Dart", level: 80 },
+        { name: "Next.js", level: 60 },
+        { name: "JavaScript", level: 70 },
         { name: "Tailwind CSS", level: 90 },
-        { name: "HTML/CSS", level: 95 }
+        { name: "HTML/CSS", level: 90 }
       ]
     },
     {
       title: "Backend Development",
       icon: <Database size={24} />,
       skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 85 },
-        { name: "MongoDB", level: 80 },
-        { name: "PostgreSQL", level: 75 },
+        { name: "MySQL", level: 75 },
         { name: "REST APIs", level: 90 },
-        { name: "Firebase", level: 80 }
+        { name: "Firebase", level: 70 },
+        { name: "Supabase", level: 70 }
       ]
     },
     {
       title: "UI/UX Design",
       icon: <Palette size={24} />,
       skills: [
-        { name: "Responsive Design", level: 90 },
-        { name: "User Interface", level: 85 },
-        { name: "Material UI", level: 85 },
+        { name: "Responsive Design", level: 70 },
+        { name: "User Interface", level: 70 },
+        { name: "Material UI", level: 80 },
         { name: "User Experience", level: 80 },
-        { name: "Figma", level: 75 },
-        { name: "Design Systems", level: 80 }
+        { name: "Figma", level: 40 },
       ]
     },
     {
       title: "Tools & Others",
       icon: <Wrench size={24} />,
       skills: [
-        { name: "Git", level: 90 },
-        { name: "Docker", level: 75 },
-        { name: "AWS", level: 70 },
-        { name: "CI/CD", level: 75 },
-        { name: "Testing", level: 80 },
-        { name: "Agile/Scrum", level: 85 }
+        { name: "Git", level: 85 },
+        { name: "Github", level: 90 },
+        { name: "Restful APIs", level: 60 },
+        { name: "WebSockets", level: 40 },
       ]
     }
   ];
@@ -137,7 +131,7 @@ const Skills = () => {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/10 dark:bg-blue-400/10 rounded-full">
             <Terminal size={20} className="text-blue-600 dark:text-blue-400" />
             <span className="text-gray-700 dark:text-gray-300">
-              Currently Working on: Python, Machine Learning, Web3
+              Currently Working on: Flutter mobile app development
             </span>
           </div>
         </motion.div>
