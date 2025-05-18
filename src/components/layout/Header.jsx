@@ -52,10 +52,11 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
           {/* Divider */}
           <div className="hidden md:block w-px h-6 bg-gray-300 dark:bg-gray-700" />
 
-          {/* Download CV Button - Desktop only */}
+          {/* Download/Open CV Button - Desktop only */}
           <motion.a
-            href="/your-cv.pdf"
-            download
+            href="/cv.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

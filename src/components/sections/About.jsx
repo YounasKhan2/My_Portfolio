@@ -4,9 +4,9 @@ import { Code, Briefcase, Book, Users, CheckCircle2 } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { icon: <Code className="w-5 h-5" />, value: "1.5+", label: "Years Experience" },
+    { icon: <Code className="w-5 h-5" />, value: "1+", label: "Years Experience" },
     { icon: <Briefcase className="w-5 h-5" />, value: "6+", label: "Projects" },
-    { icon: <Book className="w-5 h-5" />, value: "10++", label: "Technologies" },
+    { icon: <Book className="w-5 h-5" />, value: "10+", label: "Technologies" },
     { icon: <Users className="w-5 h-5" />, value: "5+", label: "Clients" }
   ];
 

@@ -76,6 +76,45 @@ const Projects = () => {
         "Smooth page transitions",
         "Interactive UI elements"
       ]
+    },
+    {
+      title: "Expense Tracker",
+      description: "A cross-platform Flutter app for managing and analyzing personal finances with real-time sync and analytics.",
+      technologies: ["Flutter", "Dart", "Firebase Auth", "Firestore", "fl_chart"],
+      image: "/images/projects/expense-tracker.jpg",
+      category: "mobile",
+      github: "https://github.com/YounasKhan2/Expense_Tracker.git",
+      live: "",
+      featured: true,
+      details: [
+        "Secure authentication with Firebase",
+        "Add, edit, delete expenses and income",
+        "Category-wise transaction management",
+        "Real-time sync with Firestore",
+        "Dashboard with charts and analytics",
+        "Modern Material Design UI",
+        "Multi-platform: Android, iOS, Web, Desktop"
+      ]
+    },
+    {
+      title: "Cine Stream",
+      description: "A cross-platform Flutter app for browsing, searching, and streaming movies directly from torrent sources, with a modern UI and smooth video playback.",
+      technologies: ["Flutter", "Dart", "video_player", "chewie", "cached_network_image", "http", "Node.js", "Express", "torrent-stream", "YTS API"],
+      image: "/images/projects/cinestream.jpg",
+      category: "mobile",
+      github: "https://github.com/YounasKhan2/CineStream.git",
+      live: "",
+      featured: true,
+      details: [
+        "Browse and search movies using the YTS API",
+        "Detailed movie pages with cast, genres, ratings, and trailers",
+        "Stream movies directly from torrent magnet links",
+        "Watch YouTube trailers within the app",
+        "Full-screen video playback with custom controls",
+        "Modern, responsive UI with dark mode support",
+        "Cross-platform: Android, iOS, Linux, Windows",
+        "Custom Node.js backend for torrent streaming (https://cinestreamserver.onrender.com/stream)"
+      ]
     }
   ];
 

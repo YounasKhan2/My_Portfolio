@@ -122,19 +122,21 @@ const Hero = () => {
             </p>
 
             <div className="flex gap-4">
-              <motion.button
-                href="#projects"
-                className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors group"
-              >
-                View My Work
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  className="group-hover:translate-x-1 transition-transform"
+              <Link href="#projects" scroll={true} passHref legacyBehavior>
+                <motion.a
+                  className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium transition-colors group cursor-pointer"
+                  whileHover={{ scale: 1.03 }}
                 >
-                  <ArrowRight size={20} />
-                </motion.div>
-              </motion.button>
+                  View My Work
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="group-hover:translate-x-1 transition-transform"
+                  >
+                    <ArrowRight size={20} />
+                  </motion.div>
+                </motion.a>
+              </Link>
             </div>
           </motion.div>
 
