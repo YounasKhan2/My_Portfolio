@@ -7,7 +7,8 @@ import {
   Send,
   Github, 
   Linkedin, 
-  Instagram 
+  Instagram,
+  Link as LinkIcon
 } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
@@ -97,18 +98,23 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <Github className="w-6 h-6" />,
-      href: "https://github.com/yourusername",
+      href: "https://github.com/YounasKhan2",
       label: "GitHub"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://linkedin.com/in/mr-khan-65b123241",
       label: "LinkedIn"
     },
     {
       icon: <Instagram className="w-6 h-6" />,
-      href: "https://instagram.com/yourusername",
+      href: "https://www.instagram.com/younas.k._k.?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr",
       label: "Instagram"
+    },
+    {
+      icon: <LinkIcon className="w-6 h-6" />,
+      href: "https://www.fiverr.com/s/lj50dm7",
+      label: "Fiverr"
     }
   ];
 

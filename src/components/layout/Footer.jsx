@@ -1,12 +1,13 @@
 // File: src/components/layout/Footer.jsx
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Instagram, Mail, Phone, MapPin, Star } from 'lucide-react';
+import { Github, Linkedin, Instagram, Mail, Phone, MapPin, Star, Link as LinkIcon } from 'lucide-react';
 
 const Footer = () => {
   const socialLinks = [
     { icon: <Github size={24} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
-    { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Instagram size={24} />, href: "https://www.instagram.com/younas.k._k.?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" }
+    { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/mr-khan-65b123241", label: "LinkedIn" },
+    { icon: <Instagram size={24} />, href: "https://www.instagram.com/younas.k._k/?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" },
+    { icon: <LinkIcon size={24} />, href: "https://www.fiverr.com/s/lj50dm7", label: "Fiverr" }
   ];
 
   const reviews = [
@@ -69,14 +70,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Contact</h3>
             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
               <Mail size={20} />
-              <a href="mailto:contact@example.com" className="hover:text-blue-600 dark:hover:text-blue-400">
+              <a href="mailto:younaskk120@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400">
                 younaskk120@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
               <Phone size={20} />
-              <a href="tel:+1234567890" className="hover:text-blue-600 dark:hover:text-blue-400">
-                
+              <a href="tel:+923130812324" className="hover:text-blue-600 dark:hover:text-blue-400">
                 +92 313 0812324
               </a>
             </div>

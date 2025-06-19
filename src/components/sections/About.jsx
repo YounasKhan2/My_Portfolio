@@ -16,7 +16,10 @@ const About = () => {
     "UI/UX Design",
     "Database Management",
     "API Integration",
-    "Cloud Services"
+    "Cloud Services",
+    "TypeScript & Modern JavaScript",
+    "Performance Optimization",
+    "Testing & CI/CD"
   ];
 
   return (
@@ -119,13 +122,13 @@ const About = () => {
                 </h3>
                 <div className="space-y-3 text-gray-600 dark:text-gray-300">
                   <p>
-                    <span className="font-medium">Frontend:</span> Dart, React.js, Next.js, Tailwind CSS, JavaScript (ES6+)
+                    <span className="font-medium">Frontend:</span> Dart, React.js, Next.js, Tailwind CSS, JavaScript (ES6+), TypeScript, Redux, Framer Motion
                   </p>
                   <p>
-                    <span className="font-medium">Backend:</span> Firebase, Supabase, REST APIs
+                    <span className="font-medium">Backend:</span> Firebase, Supabase, REST APIs, GraphQL, Node.js
                   </p>
                   <p>
-                    <span className="font-medium">Tools & Others:</span> Git, Firebase, Supabase, Vercel
+                    <span className="font-medium">Tools & Others:</span> Git, Docker, Vercel, Netlify, Figma, CI/CD, Testing (Jest)
                   </p>
                 </div>
               </motion.div>

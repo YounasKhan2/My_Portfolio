@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import AnimatedText from '../ui/AnimatedText';
 import Link from 'next/link';
+import OptimizedImage from '../ui/OptimizedImage';
 
 // Extended Code snippets
 const CodeSnippets = [
@@ -147,9 +148,8 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative flex justify-center items-center"
           >
-            <div className="relative w-[350px] h-[420px] lg:w-[350px] lg:h-[450px]">
+            <div className="relative w-[220px] h-[260px] md:w-[300px] md:h-[350px] lg:w-[350px] lg:h-[450px]">
               <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-primary-500/5 to-purple-500/10 rounded-3xl filter blur-3xl opacity-60" />
-              
               <motion.div
                 className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl"
                 whileHover={{ scale: 1.02 }}
@@ -166,10 +166,12 @@ const Hero = () => {
                   ease: "linear",
                 }}
               >
-                <img
+                <OptimizedImage
                   src="/images/profile.jpg"
                   alt="Muhammad Younas"
                   className="w-full h-full object-cover object-center"
+                  fill
+                  priority
                 />
               </motion.div>
             </div>

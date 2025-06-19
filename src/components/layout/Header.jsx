@@ -7,14 +7,16 @@ import {
   Mail, 
   Github, 
   Linkedin, 
-  Instagram 
+  Instagram,
+  Link // Add Link icon for Fiverr
 } from 'lucide-react';
 
 const Header = ({ isDarkMode, setIsDarkMode }) => {
   const socialLinks = [
     { icon: <Github size={20} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas.k._k.?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" }
+    { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/mr-khan-65b123241", label: "LinkedIn" },
+    { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas.k._k/?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" },
+    { icon: <Link size={20} />, href: "https://www.fiverr.com/s/lj50dm7", label: "Fiverr" } // Fiverr link added
   ];
 
   return (
@@ -55,8 +57,6 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
           {/* Download/Open CV Button - Desktop only */}
           <motion.a
             href="/cv.jpg"
-            target='blank'
-            rel='noopener noreferrer'
             download
             className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors duration-200"
             whileHover={{ scale: 1.05 }}

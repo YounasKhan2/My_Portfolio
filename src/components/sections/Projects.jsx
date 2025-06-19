@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, Folder } from 'lucide-react';
+import OptimizedImage from '../ui/OptimizedImage';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -15,10 +16,61 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "offline_llm – Offline LLM Chatbot",
+      description: "A cross-platform, privacy-first chatbot app that runs advanced large language models (LLMs) locally on-device using llama.cpp and Flutter. No internet required for inference. Supports Android, iOS, Windows, macOS, and Linux.",
+      technologies: [
+        "Flutter",
+        "Dart",
+        "C/C++ (llama.cpp)",
+        "FFI",
+        "CMake",
+        "Native Platform Integration"
+      ], // Add this image to your public/images/projects folder if available
+      category: "ai",
+      github: "https://github.com/YounasKhan2/offline_llm", // Replace with your actual repo URL if different
+      live: "", // No live demo for native apps
+      featured: true,
+      details: [
+        "Local LLM inference: Runs Llama and compatible models fully offline for privacy and low-latency.",
+        "Multi-platform: Android, iOS, Windows, macOS, Linux.",
+        "Model management: Load, quantize, and run GGUF-format models.",
+        "Text generation and chat interface with Flutter UI.",
+        "Integrates llama.cpp for high-performance native inference.",
+        "Performance optimized: Quantized models, hardware acceleration.",
+        "Open source, modular, and extensible codebase."
+      ]
+    },
+    {
+      title: "EduSeminarsPK – Seminar & Opportunities Platform",
+      description: "A modern Next.js web platform for discovering, registering, and learning about academic seminars, scholarships, and career opportunities. Features seminar listings, opportunities hub, registration, testimonials, and a responsive, animated UI.",
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "Lucide Icons",
+        "EmailJS",
+        "Netlify/vercel",
+        "JavaScript (ES6+)"
+      ],// Add this image to your public/images/projects folder if available
+      category: "web",
+      github: "https://github.com/YounasKhan2/seminars.git", // Replace with actual repo URL
+      live: "https://eduseminarspk.netlify.app", // Replace with actual live URL
+      featured: true,
+      details: [
+        "Seminar Listings: Browse upcoming and featured seminars with details on speakers, topics, schedule, and registration.",
+        "Opportunities Hub: Explore scholarships, internships, mentorships, and study abroad programs.",
+        "Speaker & Seminar Details: In-depth information about each seminar, including speaker bios, session schedules, and tags.",
+        "Registration System: Register for seminars and opportunities directly from the platform.",
+        "Contact & FAQ: Built-in form (EmailJS integration) and answers to common questions.",
+        "Success Stories: Testimonials from students who have benefited from the platform.",
+        "Responsive Design: Fully responsive and mobile-friendly UI using Tailwind CSS.",
+        "Modern UI/UX: Animated gradients, Lucide icons, and interactive components.",
+        "Admin-Ready Data Structure: Modular and easy to extend for future backend/API integration."
+      ]
+    },
+    {
       title: "Admin Dashboard",
       description: "Full-featured admin panel built with Next.js and Supabase, featuring real-time data updates, user management, and analytics dashboard.",
       technologies: ["Next.js", "Supabase", "Tailwind CSS", "React Query"],
-      image: "/images/projects/admin-panel.jpg",
       category: "web",
       github: "https://github.com/YounasKhan2/NewsApp_AdminPanel.git",
       live: "https://admin-panel-demo.com",
@@ -34,7 +86,6 @@ const Projects = () => {
       title: "News App",
       description: "Cross-platform news application built with Flutter, delivering real-time news updates with a clean and intuitive interface.",
       technologies: ["Flutter", "Dart", "REST API", "Firebase"],
-      image: "/images/projects/news-app.jpg",
       category: "mobile",
       github: "https://github.com/YounasKhan2/PulseNews.git",
       featured: true,
@@ -49,7 +100,6 @@ const Projects = () => {
       "title": "Firebase Chat App",
       "description": "Cross-platform chat application built with Flutter, featuring real-time messaging, Google Sign-In, and Firebase integration.",
       "technologies": ["Flutter", "Dart", "Firebase", "Google Sign-In", "Cloud Firestore"],
-      "image": "/images/projects/firebase-chat-app.jpg",
       "category": "mobile",
       "github": "https://github.com/YounasKhan2/Firebase_ChatApp.git",
       "featured": true,
@@ -65,10 +115,9 @@ const Projects = () => {
       title: "Portfolio Website",
       description: "Modern portfolio website showcasing my projects and skills, built with Next.js and Framer Motion for smooth animations.",
       technologies: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-      image: "/images/projects/portfolio.jpg",
       category: "web",
       github: "https://github.com/YounasKhan2/My_Portfolio.git",
-      live: "https://yourportfolio.com",
+      live: "https://muhammad-younas.netlify.app/",
       featured: true,
       details: [
         "Responsive design",
@@ -81,7 +130,6 @@ const Projects = () => {
       title: "Expense Tracker",
       description: "A cross-platform Flutter app for managing and analyzing personal finances with real-time sync and analytics.",
       technologies: ["Flutter", "Dart", "Firebase Auth", "Firestore", "fl_chart"],
-      image: "/images/projects/expense-tracker.jpg",
       category: "mobile",
       github: "https://github.com/YounasKhan2/Expense_Tracker.git",
       live: "",
@@ -100,7 +148,6 @@ const Projects = () => {
       title: "Cine Stream",
       description: "A cross-platform Flutter app for browsing, searching, and streaming movies directly from torrent sources, with a modern UI and smooth video playback.",
       technologies: ["Flutter", "Dart", "video_player", "chewie", "cached_network_image", "http", "Node.js", "Express", "torrent-stream", "YTS API"],
-      image: "/images/projects/cinestream.jpg",
       category: "mobile",
       github: "https://github.com/YounasKhan2/CineStream.git",
       live: "",
@@ -114,6 +161,32 @@ const Projects = () => {
         "Modern, responsive UI with dark mode support",
         "Cross-platform: Android, iOS, Linux, Windows",
         "Custom Node.js backend for torrent streaming (https://cinestreamserver.onrender.com/stream)"
+      ]
+    },
+    {
+      title: "APKDrop – APK Discovery & Download Platform",
+      description: "A modern Next.js platform for browsing, searching, and downloading Android APK files. Focused on safety, privacy, and user experience. Features APK search, detailed app pages, categories, blog, and AdSense integration.",
+      technologies: [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "AdSense",
+        "JavaScript (ES6+)"
+      ], // Add this image to your public/images/projects folder if available
+      category: "web",
+      github: "https://github.com/YounasKhan2/AppDrop.git", // Replace with actual repo URL if different
+      live: "https://app-drop.vercel.app", // Replace with actual live URL if available
+      featured: true,
+      details: [
+        "Search bar for APKs and featured APKs grid on the home page.",
+        "Detailed APK pages: description, development story, installation instructions, features, screenshots, version history, changelog, and user reviews.",
+        "Category pages for browsing apps by type (Productivity, Messaging, etc).",
+        "Educational blog about Android apps, security, and productivity.",
+        "Contact form for user inquiries and support.",
+        "Data-driven: apps and categories managed via JavaScript data files.",
+        "Responsive, modern UI with dark mode support.",
+        "AdSense integration for monetization.",
+        "Privacy-focused: no account required, local data storage for some apps."
       ]
     }
   ];
@@ -226,6 +299,16 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
+                {/* Project Image */}
+                {project.image && (
+                  <OptimizedImage
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover object-center"
+                    width={600}
+                    height={300}
+                  />
+                )}
               </motion.div>
             ))}
           </AnimatePresence>

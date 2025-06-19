@@ -12,7 +12,9 @@ const Skills = () => {
         { name: "Next.js", level: 60 },
         { name: "JavaScript", level: 70 },
         { name: "Tailwind CSS", level: 90 },
-        { name: "HTML/CSS", level: 90 }
+        { name: "HTML/CSS", level: 90 },
+        { name: "Java Swing", level: 65 },
+        { name: "Flutter", level: 85 },
       ]
     },
     {
@@ -22,7 +24,17 @@ const Skills = () => {
         { name: "MySQL", level: 75 },
         { name: "REST APIs", level: 90 },
         { name: "Firebase", level: 70 },
-        { name: "Supabase", level: 70 }
+        { name: "Supabase", level: 70 },
+        { name: "Python", level: 60 },
+        { name: "C++", level: 60 },
+      ]
+    },
+    {
+      title: "Computer Science Concepts",
+      icon: <Terminal size={24} />,
+      skills: [
+        { name: "OOP's Concepts", level: 85 },
+        { name: "Data Structure & Algorithm", level: 75 },
       ]
     },
     {
@@ -44,6 +56,16 @@ const Skills = () => {
         { name: "Github", level: 90 },
         { name: "Restful APIs", level: 60 },
         { name: "WebSockets", level: 40 },
+        { name: "Android Development", level: 80 },
+        { name: "Authentication (NextAuth.js, Auth0, Firebase Auth)", level: 60 },
+      ]
+    },
+    {
+      title: "Deployment & Hosting",
+      icon: <Wrench size={24} />,
+      skills: [
+        { name: "Vercel", level: 70 },
+        { name: "Netlify", level: 70 },
       ]
     }
   ];
@@ -131,7 +153,7 @@ const Skills = () => {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/10 dark:bg-blue-400/10 rounded-full">
             <Terminal size={20} className="text-blue-600 dark:text-blue-400" />
             <span className="text-gray-700 dark:text-gray-300">
-              Currently Working on: Flutter mobile app development
+              Currently Working on: Offline LLM's
             </span>
           </div>
         </motion.div>

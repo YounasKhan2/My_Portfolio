@@ -1,5 +1,5 @@
 // File: src/components/layout/Layout.jsx
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 // Import Sidebar normally as it's critical for navigation
@@ -67,19 +67,12 @@ const Layout = ({ children }) => {
 
   return (
     <div className="relative min-h-screen bg-gray-50 dark:bg-[#0B1121] transition-colors duration-300">
-      <Suspense fallback={<div className="h-16 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm" />}>
-        <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      </Suspense>
-      
+      <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Sidebar />
-      
       <main className="pt-16 transition-colors duration-300">
         {children}
       </main>
-
-      <Suspense fallback={<div className="h-24 bg-white/80 dark:bg-gray-900/80" />}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };
