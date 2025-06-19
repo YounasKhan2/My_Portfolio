@@ -1,6 +1,7 @@
 // File: src/components/layout/Layout.jsx
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { Analytics } from "@vercel/analytics/next";
 
 // Import Sidebar normally as it's critical for navigation
 import Sidebar from './Sidebar';
@@ -73,6 +74,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <Analytics />
     </div>
   );
 };
