@@ -114,7 +114,7 @@ const Hero = () => {
             </h1>
 
             <div className="h-12">
-              <AnimatedText texts={['Web Developer', 'App Developer', 'Designer']} />
+              <AnimatedText texts={['Full Stack Web Developer', 'Android App Developer', 'UI/UX']} />
             </div>
 
             <p className="text-lg text-gray-600 dark:text-gray-300">

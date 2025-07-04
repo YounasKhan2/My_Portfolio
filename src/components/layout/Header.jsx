@@ -8,15 +8,16 @@ import {
   Github, 
   Linkedin, 
   Instagram,
-  Link // Add Link icon for Fiverr
+  Link as LinkIcon // Rename to avoid conflict with next/link
 } from 'lucide-react';
+import Link from 'next/link';
 
 const Header = ({ isDarkMode, setIsDarkMode }) => {
   const socialLinks = [
     { icon: <Github size={20} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/mr-khan-65b123241", label: "LinkedIn" },
     { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas.k._k/?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" },
-    { icon: <Link size={20} />, href: "https://www.fiverr.com/s/lj50dm7", label: "Fiverr" } // Fiverr link added
+    { icon: <LinkIcon size={20} />, href: "https://www.fiverr.com/s/lj50dm7", label: "Fiverr" } // Fiverr link added
   ];
 
   return (
@@ -54,6 +55,17 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
           {/* Divider */}
           <div className="hidden md:block w-px h-6 bg-gray-300 dark:bg-gray-700" />
 
+          {/* Resume Button */}
+          <Link href="/resume" passHref legacyBehavior>
+            <motion.a
+              className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors duration-200"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Resume</span>
+            </motion.a>
+          </Link>
+
           {/* Download/Open CV Button - Desktop only */}
           <motion.a
             href="/cv.jpg"
@@ -65,7 +77,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
             <Download size={16} />
             <span>CV</span>
           </motion.a>
-
+          
           {/* Contact Button */}
           <motion.a
             href="mailto:younaskk120@gmail.com"

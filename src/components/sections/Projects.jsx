@@ -188,6 +188,32 @@ const Projects = () => {
         "AdSense integration for monetization.",
         "Privacy-focused: no account required, local data storage for some apps."
       ]
+    },
+    {
+      title: "TechBlog Pro – Modern Next.js Tech Blog",
+      description: "A professional, modern tech blog built with Next.js (App Router) and TypeScript. Features a scalable content structure, advanced SEO, and a clean, responsive UI.",
+      technologies: [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Contentlayer",
+        "React",
+        "Lucide Icons"
+      ],
+      category: "web",
+      github: "https://github.com/YounasKhan2/blogs.git",
+      live: "https://techblogspro.netlify.app/", 
+      featured: true,
+      details: [
+        "Centralized, extensible SEO system with structured data (JSON-LD) for all page types (posts, categories, static pages, homepage).",
+        "Fully compliant with Next.js App Directory best practices (server/client component boundaries, static params, etc.).",
+        "Dynamic blog post pages with related articles, category navigation, and share functionality.",
+        "Dark mode support with careful attention to content readability and accessibility.",
+        "Modular component architecture (ads, newsletter, navigation, etc.).",
+        "Content sourced from markdown files, supporting authors, categories, and tags.",
+        "Optimized for performance and mobile devices.",
+        "Led the refactor and modernization of the SEO system, improved dark mode support, and implemented best practices for maintainability and scalability."
+      ]
     }
   ];
 
