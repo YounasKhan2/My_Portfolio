@@ -55,17 +55,6 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
           {/* Divider */}
           <div className="hidden md:block w-px h-6 bg-gray-300 dark:bg-gray-700" />
 
-          {/* Resume Button */}
-          <Link href="/resume" passHref legacyBehavior>
-            <motion.a
-              className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors duration-200"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span>Resume</span>
-            </motion.a>
-          </Link>
-
           {/* Download/Open CV Button - Desktop only */}
           <motion.a
             href="/cv.jpg"
