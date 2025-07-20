@@ -3,6 +3,7 @@ import About from '@/components/sections/About';
 import Hero from '../components/sections/Hero';
 import Skills from '@/components/sections/Skills';
 import Projects from '../components/sections/Projects';
+import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="snap-section min-h-screen"><About /></div>
       <div className="snap-section min-h-screen"><Skills /></div>
       <div className="snap-section min-h-screen"><Projects /></div>
+      <div className="snap-section min-h-screen"><Testimonials /></div>
       <div className="snap-section min-h-screen"><Contact /></div>
       {/* Other sections will be added here */}
     </div>

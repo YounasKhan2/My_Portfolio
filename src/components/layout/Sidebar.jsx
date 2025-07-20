@@ -13,7 +13,8 @@ import {
   Github,
   Linkedin,
   Instagram,
-  ChevronRight
+  ChevronRight,
+  Star
 } from 'lucide-react';
 
 const Sidebar = () => {
@@ -27,6 +28,7 @@ const Sidebar = () => {
     { title: "About", icon: <User size={20} />, href: "#about" },
     { title: "Skills", icon: <Code size={20} />, href: "#skills" },
     { title: "Projects", icon: <Briefcase size={20} />, href: "#projects" },
+    { title: "Testimonials", icon: <Star size={20} />, href: "#testimonials" },
     { title: "Contact", icon: <Mail size={20} />, href: "#contact" }
   ];
 
