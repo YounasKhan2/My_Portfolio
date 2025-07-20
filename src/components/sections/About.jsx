@@ -21,7 +21,7 @@ const About = () => {
   ];
 
   const currentActivity = {
-    status: "🚀 Building AI-powered mobile apps",
+    status: "🚀 Try Roy - AI-Powered Learning Platform with Smart Transcription",
     location: "Pakistan",
     timezone: "UTC+5",
     mood: "Excited about new tech!"

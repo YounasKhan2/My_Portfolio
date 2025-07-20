@@ -5,7 +5,7 @@ import { Star, Quote, Users, Award, TrendingUp } from 'lucide-react';
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "John Smith",
+      name: "Mohammad",
       role: "CEO",
       company: "TechCorp",
       avatar: "/images/avatars/john.jpg", // You can add actual avatars later

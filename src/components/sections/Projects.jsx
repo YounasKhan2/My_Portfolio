@@ -78,6 +78,29 @@ const Projects = () => {
       ]
     },
     {
+      title: "Try Roy - AI-Powered Learning Platform",
+      description: "A comprehensive web application that transforms audio, video, and documents into interactive learning experiences using advanced AI technology. Combines industry-leading transcription capabilities with intelligent content generation.",
+      shortDesc: "AI-powered learning and transcription platform",
+      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "OpenAI", "AssemblyAI", "Stripe"],
+      category: ["web", "ai"],
+      github: "https://github.com/YounasKhan2/try-roy", // Update with actual repo URL
+      live: "https://tryroy.com", // Add Replit deployment URL when available
+      featured: true,
+      size: "large",
+      highlight: "AI Education Platform",
+      year: "2025",
+      status: "In Development",
+      details: [
+        "Smart transcription with high-accuracy audio/video processing using AssemblyAI",
+        "AI-powered learning tools: Generate quizzes, flashcards, and study notes from content",
+        "Real-time speech-to-text with browser-based voice recording",
+        "Multi-format support: Audio, video, PDFs, documents, and images",
+        "Subscription management with Stripe integration and usage tracking",
+        "Admin dashboard with user management, analytics, and content moderation",
+        "Enterprise-grade security with JWT authentication and email verification"
+      ]
+    },
+    {
       title: "EduSeminarsPK",
       description: "A modern Next.js web platform for discovering, registering, and learning about academic seminars, scholarships, and career opportunities.",
       shortDesc: "Academic opportunities platform",
@@ -243,7 +266,10 @@ const Projects = () => {
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
-    : projects.filter(project => project.category === activeFilter);
+    : projects.filter(project => {
+        const categories = Array.isArray(project.category) ? project.category : [project.category];
+        return categories.includes(activeFilter);
+      });
 
   // Reset carousel position when filter changes
   useEffect(() => {
