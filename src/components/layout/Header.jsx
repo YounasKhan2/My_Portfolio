@@ -57,7 +57,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
 
           {/* Download/Open CV Button - Desktop only */}
           <motion.a
-            href="/cv.pdf"
+            href="/cv.jpg"
             download
             className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors duration-200"
             whileHover={{ scale: 1.05 }}
