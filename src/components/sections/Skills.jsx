@@ -32,6 +32,10 @@ const Skills = () => {
         { name: "Supabase", level: 70, category: "core" },
         { name: "Python", level: 60, category: "growing" },
         { name: "C++", level: 60, category: "growing" },
+          { name: "Flask", level: 65, category: "growing" },
+          { name: "Django", level: 65, category: "growing" },
+          { name: "PHP", level: 70, category: "core" },
+          { name: "Laravel", level: 60, category: "growing" },
       ]
     },
     {
