@@ -48,7 +48,8 @@ const Footer = () => {
     { name: 'About', href: '#about', description: 'Learn more about me' },
     { name: 'Skills', href: '#skills', description: 'My technical expertise' },
     { name: 'Projects', href: '#projects', description: 'View my work' },
-    { name: 'Testimonials', href: '#testimonials', description: 'Client feedback' },
+    { name: 'Experience', href: '#experience', description: 'Roles and impact' },
+    { name: 'Articles', href: '#articles', description: 'Blogs & Videos' },
     { name: 'Contact', href: '#contact', description: 'Get in touch' }
   ];
 
@@ -62,7 +63,7 @@ const Footer = () => {
   const contactInfo = {
     email: "younaskk120@gmail.com",
     phone: "+92 313 0812324",
-    location: "Quetta, Pakistan",
+  location: "Lahore, Pakistan",
     timezone: "UTC+5"
   };
 

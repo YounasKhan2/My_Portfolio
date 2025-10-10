@@ -20,13 +20,6 @@ const About = () => {
     { icon: <Star className="w-5 h-5" />, value: "5+", label: "Live Apps", color: "purple" }
   ];
 
-  const currentActivity = {
-    status: "🚀 Try Roy - AI-Powered Learning Platform with Smart Transcription",
-    location: "Pakistan",
-    timezone: "UTC+5",
-    mood: "Excited about new tech!"
-  };
-
   const techStack = {
     primary: ["Flutter", "Dart", "Next.js", "React"],
     secondary: ["Firebase", "JavaScript", "TypeScript", "Tailwind"],
@@ -41,7 +34,7 @@ const About = () => {
 
   const funFacts = [
     "🎯 Can debug for hours without getting tired",
-    "☕ Average 3 cups of coffee per day",
+    "☕ Average 5 cups of coffee per day",
     "🌙 Night owl - best code written after 10 PM",
     "🎮 Gaming helps me think through complex problems",
     "📱 Flutter fanboy since day one"
@@ -77,7 +70,7 @@ const About = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="md:col-span-2 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 text-white relative overflow-hidden group"
+              className="md:col-span-2 lg:col-span-3 bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-6 text-white relative overflow-hidden group"
               onMouseEnter={() => setHoveredWidget('welcome')}
               onMouseLeave={() => setHoveredWidget(null)}
             >
@@ -106,35 +99,112 @@ const About = () => {
               />
             </motion.div>
 
-            {/* Current Status Widget */}
+            {/* Education Widget */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.35 }}
               className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <h4 className="font-semibold text-gray-900 dark:text-white">Currently</h4>
+                <Book className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                <h4 className="font-semibold text-gray-900 dark:text-white">Education</h4>
               </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{currentActivity.status.split(' ')[0]}</span>
-                  <span className="text-gray-600 dark:text-gray-400">{currentActivity.status.slice(2)}</span>
+              <div className="space-y-4 text-sm">
+                <div>
+                  <div className="font-medium text-gray-900 dark:text-white">BS Software Engineering</div>
+                  <div className="text-gray-600 dark:text-gray-400">Superior University • 2022 – 2026</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin size={16} className="text-blue-500" />
-                  <span className="text-gray-600 dark:text-gray-400">{currentActivity.location}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock size={16} className="text-purple-500" />
-                  <span className="text-gray-600 dark:text-gray-400">
-                    {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
+                <div>
+                  <div className="font-medium text-gray-900 dark:text-white">Intermediate (ICS)</div>
+                  <div className="text-gray-600 dark:text-gray-400">FG College • 2020 – 2022</div>
                 </div>
               </div>
             </motion.div>
+
+            {/* Certifications Widget */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-400" />
+                <h4 className="font-semibold text-gray-900 dark:text-white">Certifications</h4>
+              </div>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 w-2 h-2 rounded-full bg-green-500" />
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-white">Front-End Developer (Coursera)</div>
+                    <div className="text-gray-600 dark:text-gray-400">2024 • Responsive Design, React, Version Control</div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 w-2 h-2 rounded-full bg-green-500" />
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-white">Google IT Automation with Python</div>
+                    <div className="text-gray-600 dark:text-gray-400">2023 • Python Scripting, Git, Debugging</div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 w-2 h-2 rounded-full bg-green-500" />
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-white">Flutter & Firebase Bootcamp</div>
+                    <div className="text-gray-600 dark:text-gray-400">2023 • Cross‑platform apps, Auth, Realtime DB</div>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 w-2 h-2 rounded-full bg-green-500" />
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-white">Solo Learn MySQL</div>
+                    <div className="text-gray-600 dark:text-gray-400">2023 • Database Management, SQL Queries</div>
+                  </div>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* GitHub (compact) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.45 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <Github className="w-5 h-5 text-gray-900 dark:text-white" />
+                  <h4 className="font-semibold text-gray-900 dark:text-white">GitHub</h4>
+                </div>
+                <a
+                  href="https://github.com/YounasKhan2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+                >
+                  View Profile
+                </a>
+              </div>
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-400">Public Repos</span>
+                  <span className="font-medium text-gray-900 dark:text-white">12+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-400">Languages</span>
+                  <span className="font-medium text-gray-900 dark:text-white">8+</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600 dark:text-gray-400">This Year</span>
+                  <span className="font-medium text-green-600 dark:text-green-400">Very Active</span>
+                </div>
+              </div>
+            </motion.div>
+            {/* Current Status Widget removed as requested */}
 
             {/* Quick Stats - 4 Mini Widgets */}
             {quickStats.map((stat, index) => (
@@ -146,7 +216,12 @@ const About = () => {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft hover:shadow-lg transition-all duration-300 group"
               >
-                <div className={`text-${stat.color}-600 dark:text-${stat.color}-400 mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`mb-3 group-hover:scale-110 transition-transform duration-300 ${
+                  stat.color === 'blue' ? 'text-blue-600 dark:text-blue-400' :
+                  stat.color === 'green' ? 'text-green-600 dark:text-green-400' :
+                  stat.color === 'orange' ? 'text-orange-600 dark:text-orange-400' :
+                  'text-purple-600 dark:text-purple-400'
+                }`}>
                   {stat.icon}
                 </div>
                 <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
@@ -259,33 +334,6 @@ const About = () => {
               </div>
             </motion.div>
 
-            {/* GitHub Activity Widget */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-gray-900 dark:bg-gray-950 rounded-2xl p-6 text-white"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <Github className="w-5 h-5" />
-                <h4 className="font-semibold">GitHub</h4>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between">
-                  <span className="text-sm text-gray-400">Public Repos</span>
-                  <span className="text-sm font-medium">12+</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm text-gray-400">Languages</span>
-                  <span className="text-sm font-medium">8+</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm text-gray-400">This Year</span>
-                  <span className="text-sm font-medium text-green-400">Very Active</span>
-                </div>
-              </div>
-            </motion.div>
 
           </div>
         </div>

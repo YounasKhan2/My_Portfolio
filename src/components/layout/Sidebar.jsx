@@ -28,7 +28,8 @@ const Sidebar = () => {
     { title: "About", icon: <User size={20} />, href: "#about" },
     { title: "Skills", icon: <Code size={20} />, href: "#skills" },
     { title: "Projects", icon: <Briefcase size={20} />, href: "#projects" },
-    { title: "Testimonials", icon: <Star size={20} />, href: "#testimonials" },
+    { title: "Experience", icon: <Briefcase size={20} />, href: "#experience" },
+    { title: "Articles", icon: <Star size={20} />, href: "#articles" },
     { title: "Contact", icon: <Mail size={20} />, href: "#contact" }
   ];
 

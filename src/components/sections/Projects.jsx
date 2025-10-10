@@ -1,52 +1,11 @@
 // File: src/components/sections/Projects.jsx
-import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Github, ExternalLink, Folder, Star, Calendar, Code, ChevronLeft, ChevronRight } from 'lucide-react';
-import OptimizedImage from '../ui/OptimizedImage';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Github, ExternalLink, Star, Calendar } from 'lucide-react';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [hoveredProject, setHoveredProject] = useState(null);
-  
-  // Carousel state
-  const containerRef = useRef(null);
-  const x = useMotionValue(0);
-  const springX = useSpring(x, { stiffness: 300, damping: 30 });
-  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Calculate drag constraints based on content
-  useEffect(() => {
-    if (containerRef.current) {
-      const containerWidth = containerRef.current.offsetWidth;
-      const scrollWidth = containerRef.current.scrollWidth;
-      const maxDrag = Math.min(0, containerWidth - scrollWidth);
-      setDragConstraints({ left: maxDrag, right: 0 });
-    }
-  }, [activeFilter]);
-
-  // Navigation functions
-  const navigateToProject = (index) => {
-    if (containerRef.current) {
-      const cardWidth = 350; // Approximate card width + gap
-      const targetX = -index * cardWidth;
-      const maxLeft = dragConstraints.left;
-      const clampedX = Math.max(maxLeft, Math.min(0, targetX));
-      x.set(clampedX);
-      setCurrentIndex(index);
-    }
-  };
-
-  const nextProject = () => {
-    const maxIndex = filteredProjects.length - 1;
-    const newIndex = Math.min(currentIndex + 1, maxIndex);
-    navigateToProject(newIndex);
-  };
-
-  const prevProject = () => {
-    const newIndex = Math.max(currentIndex - 1, 0);
-    navigateToProject(newIndex);
-  };
+  // Modern grid-based preview (no carousel)
 
   const filters = [
     { id: 'all', label: 'All Projects' },
@@ -89,7 +48,9 @@ const Projects = () => {
       size: "large",
       highlight: "AI Education Platform",
       year: "2025",
-      status: "In Development",
+  status: "Complete",
+  role: "Full‑Stack Developer",
+  outcome: "Launched v1 at tryroy.com with transcription, quiz/notes generation, and subscriptions",
       details: [
         "Smart transcription with high-accuracy audio/video processing using AssemblyAI",
         "AI-powered learning tools: Generate quizzes, flashcards, and study notes from content",
@@ -98,6 +59,33 @@ const Projects = () => {
         "Subscription management with Stripe integration and usage tracking",
         "Admin dashboard with user management, analytics, and content moderation",
         "Enterprise-grade security with JWT authentication and email verification"
+      ]
+    },
+    {
+      title: "Conversational AI Agent (LiveKit + FastAPI)",
+      description: "A real-time voice agent that uses LiveKit for media, FastAPI for session orchestration and token minting, and a streaming STT → LLM → TTS pipeline with VAD-based turn-taking.",
+      shortDesc: "Low-latency voice AI with barge-in support",
+      technologies: ["FastAPI", "LiveKit", "WebRTC", "React (TypeScript)", "Flutter", "WebSocket", "Silero VAD", "STT/LLM/TTS"],
+      category: ["ai", "web"],
+      github: "", // add repo URL if public
+      live: "", // add live/demo link if available
+      featured: true,
+      size: "large",
+      highlight: "Real-Time Voice AI",
+      year: "2025",
+      status: "Complete",
+      role: "Full‑Stack / ML Engineer",
+      outcome: "End‑to‑end voice loop with barge‑in, streaming transcripts, and agent audio playback",
+      details: [
+        "Backend (FastAPI): mints LiveKit tokens, orchestrates AgentSession, broadcasts transcripts over /ws/transcript/{session_id}.",
+        "Media: LiveKit room handles mic publish and agent TTS playback as a remote track.",
+        "AI pipeline: streaming STT → token‑streaming LLM → chunked TTS; Silero VAD handles turn‑taking.",
+        "Clients: React web (App.tsx) and Flutter (main.dart) connect, publish mic, and render transcripts.",
+        "Data flow: browser mic → LiveKit; backend processes audio and emits transcript/speech events.",
+        "Key files: main.py (/token, /session, /ws/transcript/{session_id}, CORS); agent.py (AgentSession wiring).",
+        "Turn‑taking: VAD events user_speech_started/ended and agent_speech_started/ended update UI and flow.",
+        "Overlap policy: false interruption handling with resume and barge‑in to cut agent TTS on user speech.",
+        "Streaming UX: STT partials as interim text; finals persisted; TTS starts on first LLM tokens to reduce latency."
       ]
     },
     {
@@ -113,6 +101,8 @@ const Projects = () => {
       highlight: "Education Platform",
       year: "2024",
       status: "Live",
+  role: "Frontend Developer",
+  outcome: "Launched with seminar listings; 500+ monthly visitors",
       details: [
         "Seminar listings with registration system",
         "Opportunities hub for scholarships and internships",
@@ -255,6 +245,7 @@ const Projects = () => {
       highlight: "Portfolio",
       year: "2024",
       status: "Live",
+      image: "/images/projects/port.png",
       details: [
         "Responsive design with dark mode",
         "Smooth page transitions",
@@ -271,19 +262,15 @@ const Projects = () => {
         return categories.includes(activeFilter);
       });
 
-  // Reset carousel position when filter changes
-  useEffect(() => {
-    x.set(0);
-    setCurrentIndex(0);
-  }, [activeFilter, x]);
+  const visible = filteredProjects.length ? filteredProjects : projects;
+  const marqueeItems = [...visible, ...visible];
 
-  const getProjectGridClass = (size) => {
-    switch (size) {
-      case 'large': return 'md:col-span-2 md:row-span-2';
-      case 'medium': return 'md:col-span-2';
-      case 'small': return 'md:col-span-1';
-      default: return 'md:col-span-1';
-    }
+  const statusBadge = (status) => {
+    if (!status) return null;
+    const base = 'px-2 py-0.5 text-[11px] rounded-full';
+    if (status === 'Live') return <span className={`${base} bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300`}>{status}</span>;
+    if (status === 'Complete') return <span className={`${base} bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300`}>{status}</span>;
+    return <span className={`${base} bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300`}>{status}</span>;
   };
 
   return (
@@ -325,188 +312,90 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Carousel Navigation */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="text-sm text-gray-600 dark:text-gray-400">
-            {currentIndex + 1} of {filteredProjects.length} projects
-          </div>
-          <div className="flex gap-2">
-            <motion.button
-              onClick={prevProject}
-              disabled={currentIndex === 0}
-              className="p-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronLeft size={20} className="text-gray-600 dark:text-gray-300" />
-            </motion.button>
-            <motion.button
-              onClick={nextProject}
-              disabled={currentIndex >= filteredProjects.length - 1}
-              className="p-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <ChevronRight size={20} className="text-gray-600 dark:text-gray-300" />
-            </motion.button>
-          </div>
-        </div>
+        {/* Infinite Marquee Carousel (no images) */}
+        <div className="group relative overflow-hidden py-4">
+          {/* edge fade overlays */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50/95 dark:from-gray-900/95 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50/95 dark:from-gray-900/95 to-transparent z-10" />
 
-        {/* Momentum Scroll Carousel */}
-        <div className="relative overflow-hidden">
-          <motion.div
-            ref={containerRef}
-            style={{ x: springX }}
-            drag="x"
-            dragConstraints={dragConstraints}
-            dragElastic={0.2}
-            dragMomentum={true}
-            onDrag={(event, info) => {
-              // Update current index based on drag position
-              const cardWidth = 350;
-              const newIndex = Math.round(Math.abs(info.point.x) / cardWidth);
-              setCurrentIndex(Math.min(newIndex, filteredProjects.length - 1));
-            }}
-            className="flex gap-6 cursor-grab active:cursor-grabbing"
-            whileTap={{ cursor: "grabbing" }}
-          >
-            <AnimatePresence>
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-soft hover:shadow-xl transition-all duration-300 group"
-                  style={{ minHeight: '400px' }}
-                  onMouseEnter={() => setHoveredProject(project.title)}
-                  onMouseLeave={() => setHoveredProject(null)}
-                >
-                  {/* Project Card Content */}
-                  <div className="p-6 h-full flex flex-col">
-                    {/* Project Meta */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <span className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">
-                          {project.highlight}
+          <div className="marquee gap-6 pr-6" style={{ animationDuration: `${Math.max(18, visible.length * 4)}s` }}>
+            {marqueeItems.map((p, idx) => (
+              <motion.article
+                key={`${p.title}-${idx}`}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (idx % visible.length) * 0.05 }}
+                whileHover={{ y: -2, scale: 1.01 }}
+                className="flex-shrink-0 w-[320px] p-[1px] rounded-2xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20"
+              >
+                <div className="rounded-[15px] bg-white/70 dark:bg-gray-800/60 backdrop-blur border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-sm hover:shadow-xl transition-all flex flex-col min-h-[400px]">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      {p.featured && (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300">
+                          <Star size={12} /> Featured
                         </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
-                          {project.year}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar size={12} className="text-gray-400" />
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
-                          {project.status}
-                        </span>
-                      </div>
+                      )}
+                      <span className="px-2 py-0.5 text-[11px] rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                        {Array.isArray(p.category) ? p.category[0] : p.category}
+                      </span>
                     </div>
-
-                    {/* Project Title & Description */}
-                    <div className="mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                        {project.shortDesc}
-                      </p>
+                    <div className="flex items-center gap-2">
+                      {statusBadge(p.status)}
+                      <span className="text-xs text-gray-500 dark:text-gray-400">{p.year}</span>
                     </div>
-
-                    {/* Key Features */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Key Features:</h4>
-                      <ul className="space-y-1">
-                        {project.details.slice(0, 3).map((detail, i) => (
-                          <li key={i} className="text-xs text-gray-600 dark:text-gray-400 flex items-start">
-                            <span className="text-blue-500 mr-2 mt-1">•</span>
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Technologies */}
-                    <div className="mb-4">
-                      <div className="flex flex-wrap gap-2">
-                        {project.technologies.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-md"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.technologies.length > 4 && (
-                          <span className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-md">
-                            +{project.technologies.length - 4}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Project Links */}
-                    <div className="mt-auto">
-                      <div className="flex gap-3">
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2 text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
-                        >
-                          <Github size={16} />
-                          <span className="text-sm">Code</span>
-                        </a>
-                        {project.live && (
-                          <a
-                            href={project.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-gray-600 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400 transition-colors"
-                          >
-                            <ExternalLink size={16} />
-                            <span className="text-sm">Live</span>
-                          </a>
-                        )}
-                        {project.featured && (
-                          <div className="flex items-center gap-1 text-yellow-500 ml-auto">
-                            <Star size={14} fill="currentColor" />
-                            <span className="text-xs">Featured</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Hover Effect Indicator */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-purple-600/5 dark:from-blue-400/5 dark:to-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl"
-                      initial={false}
-                      animate={{
-                        opacity: hoveredProject === project.title ? 1 : 0
-                      }}
-                    />
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </div>
-
-        {/* Carousel Dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {filteredProjects.map((_, index) => (
-            <motion.button
-              key={index}
-              onClick={() => navigateToProject(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-blue-600 w-8' 
-                  : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
-              }`}
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.9 }}
-            />
-          ))}
+                  <h3 className="text-[17px] font-semibold text-gray-900 dark:text-white mb-1">{p.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{p.shortDesc}</p>
+                  {p.description && (
+                    <p className="text-xs text-gray-600 dark:text-gray-400 mb-3 line-clamp-3">{p.description}</p>
+                  )}
+                  {(p.role || p.outcome) && (
+                    <div className="mb-3 grid grid-cols-1 gap-1 text-xs text-gray-500 dark:text-gray-400">
+                      {p.role && (<div><span className="font-medium text-gray-700 dark:text-gray-300">Role:</span> {p.role}</div>)}
+                      {p.outcome && (<div><span className="font-medium text-gray-700 dark:text-gray-300">Outcome:</span> {p.outcome}</div>)}
+                    </div>
+                  )}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {p.technologies.slice(0,4).map(t => (
+                      <span key={t} className="px-2 py-0.5 text-[11px] rounded bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">{t}</span>
+                    ))}
+                    {p.technologies.length > 4 && (
+                      <span className="px-2 py-0.5 text-[11px] rounded bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400">+{p.technologies.length - 4}</span>
+                    )}
+                  </div>
+                  <div className="mt-auto flex items-center gap-4">
+                    {p.github && (
+                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                        <Github size={16} /> Code
+                      </a>
+                    )}
+                    {p.live && (
+                      <a href={p.live} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400">
+                        <ExternalLink size={16} /> Live
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+          <style jsx>{`
+            .marquee { 
+              display: flex; 
+              width: max-content; 
+              animation: marquee var(--dur, 28s) linear infinite; 
+            }
+            .group:hover .marquee { animation-play-state: paused; }
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .marquee { animation: none; transform: none; }
+            }
+          `}</style>
         </div>
 
         {/* Stats Bar */}
@@ -532,7 +421,7 @@ const Projects = () => {
             </div>
             <div>
               <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">
-                {projects.filter(p => p.category === 'ai').length}
+                {projects.filter(p => (Array.isArray(p.category) ? p.category.includes('ai') : p.category === 'ai')).length}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">AI Projects</div>
             </div>

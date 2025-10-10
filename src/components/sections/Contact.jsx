@@ -90,7 +90,7 @@ const Contact = () => {
     {
       icon: <MapPin className="w-5 h-5" />,
       label: "Location",
-      value: "Quetta, Pakistan",
+      value: "Lahore, Pakistan",
       href: "#"
     }
   ];
