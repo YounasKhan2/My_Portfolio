@@ -31,7 +31,7 @@ const Footer = () => {
     },
     { 
       icon: <Instagram size={24} />, 
-      href: "https://www.instagram.com/younas.k._k/?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", 
+      href: "https://www.instagram.com/younas._k._k._/", 
       label: "Instagram",
       color: "hover:text-pink-600 dark:hover:text-pink-400"
     },

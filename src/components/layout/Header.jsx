@@ -16,7 +16,7 @@ const Header = ({ isDarkMode, setIsDarkMode }) => {
   const socialLinks = [
     { icon: <Github size={20} />, href: "https://github.com/YounasKhan2", label: "GitHub" },
     { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/mr-khan-65b123241", label: "LinkedIn" },
-    { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas.k._k/?igsh=MTRsNjBxbnc1OWxlMA%3D%3D&utm_source=qr", label: "Instagram" },
+  { icon: <Instagram size={20} />, href: "https://www.instagram.com/younas._k._k._/", label: "Instagram" },
     { icon: <LinkIcon size={20} />, href: "https://www.fiverr.com/s/lj50dm7", label: "Fiverr" } // Fiverr link added
   ];
 
