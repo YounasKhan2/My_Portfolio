@@ -167,7 +167,7 @@ export default function Privacy() {
         <meta property="og:type" content="article" />
         <meta name="robots" content="index, follow" />
       </Head>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 pt-24">
         <div className="max-w-4xl mx-auto px-4">
           {/* Header */}
           <motion.div
@@ -178,10 +178,10 @@ export default function Privacy() {
           >
             <Link 
               href="/"
-              className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors mb-6"
+              className="inline-flex items-center gap-2 text-neon-cyan hover:text-neon-magenta transition-colors mb-6 font-cyber text-sm tracking-wider"
             >
               <ArrowLeft size={20} />
-              <span>Back to Portfolio</span>
+              <span>‹ RETURN_TO_MAIN</span>
             </Link>
             
             <div className="text-center">

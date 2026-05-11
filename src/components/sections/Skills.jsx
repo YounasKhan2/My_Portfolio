@@ -1,247 +1,217 @@
 // File: src/components/sections/Skills.jsx
 import { motion } from 'framer-motion';
-import { Code, Database, Palette, Terminal, Wrench, TrendingUp, Award, Clock } from 'lucide-react';
+import { Terminal, Code, Database, Cloud, Cpu, Layers, Wrench, Zap } from 'lucide-react';
 
 const Skills = () => {
-  const skillCategories = [
+  const techStack = [
     {
-      title: "Languages",
-      icon: <Terminal size={24} />,
-      description: "Programming languages",
-      metrics: { projects: 50, experience: "2+ years" },
+      category: "LANGUAGES",
+      icon: <Terminal size={18} />,
+      color: "neon-cyan",
       skills: [
-        { name: "JavaScript", level: 90, category: "expert" },
-        { name: "TypeScript", level: 85, category: "expert" },
-        { name: "Dart", level: 70, category: "core" },
-        { name: "C++", level: 60, category: "growing" },
-        { name: "Java", level: 65, category: "core" },
+        { name: "JavaScript", level: 95 },
+        { name: "TypeScript", level: 90 },
+        { name: "Dart", level: 75 },
+        { name: "C++", level: 65 },
+        { name: "Python", level: 60 },
       ]
     },
     {
-      title: "Frontend Development",
-      icon: <Code size={24} />,
-      description: "Modern web interfaces",
-      metrics: { projects: 25, experience: "2+ years" },
+      category: "FRONTEND",
+      icon: <Layers size={18} />,
+      color: "neon-magenta",
       skills: [
-        { name: "React.js", level: 90, category: "expert" },
-        { name: "Next.js", level: 90, category: "expert" },
-        { name: "Redux / Redux Toolkit", level: 85, category: "expert" },
-        { name: "Tailwind CSS", level: 90, category: "expert" },
-        { name: "HTML5 / CSS3", level: 90, category: "expert" },
+        { name: "React.js", level: 95 },
+        { name: "Next.js", level: 92 },
+        { name: "Redux Toolkit", level: 88 },
+        { name: "Tailwind CSS", level: 95 },
+        { name: "Flutter", level: 80 },
       ]
     },
     {
-      title: "Backend Development",
-      icon: <Database size={24} />,
-      description: "Scalable server solutions",
-      metrics: { projects: 20, experience: "2+ years" },
+      category: "BACKEND",
+      icon: <Code size={18} />,
+      color: "neon-lime",
       skills: [
-        { name: "Node.js", level: 90, category: "expert" },
-        { name: "NestJS", level: 85, category: "expert" },
-        { name: "Express.js", level: 90, category: "expert" },
-        { name: "RESTful APIs", level: 95, category: "expert" },
-        { name: "GraphQL", level: 70, category: "core" },
-        { name: "Microservices", level: 80, category: "expert" },
-        { name: "WebSockets / Webhooks", level: 75, category: "core" },
+        { name: "Node.js", level: 92 },
+        { name: "NestJS", level: 88 },
+        { name: "Express.js", level: 90 },
+        { name: "REST APIs", level: 95 },
+        { name: "GraphQL", level: 75 },
       ]
     },
     {
-      title: "Databases",
-      icon: <Database size={24} />,
-      description: "Data storage & management",
-      metrics: { projects: 18, experience: "2+ years" },
+      category: "DATABASE",
+      icon: <Database size={18} />,
+      color: "neon-purple",
       skills: [
-        { name: "PostgreSQL", level: 85, category: "expert" },
-        { name: "MongoDB", level: 85, category: "expert" },
-        { name: "Redis", level: 80, category: "expert" },
-        { name: "SQLite", level: 75, category: "core" },
-        { name: "Prisma ORM", level: 85, category: "expert" },
-        { name: "Mongoose", level: 80, category: "expert" },
+        { name: "PostgreSQL", level: 88 },
+        { name: "MongoDB", level: 90 },
+        { name: "Redis", level: 82 },
+        { name: "Prisma ORM", level: 88 },
+        { name: "Firebase", level: 80 },
       ]
     },
     {
-      title: "Cloud & DevOps",
-      icon: <Wrench size={24} />,
-      description: "Cloud infrastructure & CI/CD",
-      metrics: { projects: 15, experience: "1.5+ years" },
+      category: "DEVOPS",
+      icon: <Cloud size={18} />,
+      color: "neon-orange",
       skills: [
-        { name: "AWS (EC2, S3, Lambda)", level: 80, category: "expert" },
-        { name: "Microsoft Azure", level: 75, category: "core" },
-        { name: "Docker", level: 80, category: "expert" },
-        { name: "Vercel", level: 85, category: "expert" },
-        { name: "Railway", level: 80, category: "expert" },
-        { name: "GitHub Actions / CI/CD", level: 80, category: "expert" },
+        { name: "AWS", level: 82 },
+        { name: "Azure", level: 78 },
+        { name: "Docker", level: 80 },
+        { name: "CI/CD", level: 85 },
+        { name: "Vercel/Railway", level: 90 },
       ]
     },
     {
-      title: "Tools & Practices",
-      icon: <Wrench size={24} />,
-      description: "Development workflow",
-      metrics: { projects: 50, experience: "2+ years" },
+      category: "TOOLS",
+      icon: <Wrench size={18} />,
+      color: "neon-pink",
       skills: [
-        { name: "Git / GitHub", level: 90, category: "expert" },
-        { name: "Agile / Scrum", level: 85, category: "expert" },
-        { name: "Code Reviews", level: 90, category: "expert" },
-        { name: "Debugging", level: 90, category: "expert" },
-        { name: "Unit Testing / TDD", level: 75, category: "core" },
-        { name: "API Integration", level: 90, category: "expert" },
+        { name: "Git/GitHub", level: 95 },
+        { name: "Agile/Scrum", level: 88 },
+        { name: "Testing", level: 80 },
+        { name: "Figma", level: 75 },
+        { name: "Postman", level: 90 },
       ]
-    }
+    },
   ];
 
-  const getSkillColor = (category) => {
-    switch (category) {
-      case 'expert': return 'bg-green-500';
-      case 'core': return 'bg-blue-500';
-      case 'growing': return 'bg-yellow-500';
-      case 'learning': return 'bg-purple-500';
-      default: return 'bg-gray-500';
-    }
+  const getColorClass = (color) => {
+    const colors = {
+      'neon-cyan': 'text-neon-cyan border-neon-cyan',
+      'neon-magenta': 'text-neon-magenta border-neon-magenta',
+      'neon-lime': 'text-neon-lime border-neon-lime',
+      'neon-purple': 'text-neon-purple border-neon-purple',
+      'neon-orange': 'text-neon-orange border-neon-orange',
+      'neon-pink': 'text-neon-pink border-neon-pink',
+    };
+    return colors[color] || colors['neon-cyan'];
   };
 
-  const getCategoryLabel = (category) => {
-    switch (category) {
-      case 'expert': return 'Expert';
-      case 'core': return 'Proficient';
-      case 'growing': return 'Growing';
-      case 'learning': return 'Learning';
-      default: return '';
-    }
+  const getBgClass = (color) => {
+    const colors = {
+      'neon-cyan': 'bg-neon-cyan',
+      'neon-magenta': 'bg-neon-magenta',
+      'neon-lime': 'bg-neon-lime',
+      'neon-purple': 'bg-neon-purple',
+      'neon-orange': 'bg-neon-orange',
+      'neon-pink': 'bg-neon-pink',
+    };
+    return colors[color] || colors['neon-cyan'];
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-50/50 dark:bg-gray-900/50 scroll-mt-16">
-      <div className="container mx-auto px-4">
-        {/* Section Title */}
+    <section id="skills" className="py-24 relative overflow-hidden bg-cyber-black scroll-mt-16">
+      {/* Background */}
+      <div className="absolute inset-0 cyber-grid opacity-40" />
+      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-neon-lime/5 to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & Expertise
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-cyber text-neon-lime text-sm tracking-widest">03</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-neon-lime/50 to-transparent" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+            TECH<span className="text-neon-lime">.</span>STACK
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
-          <p className="text-gray-600 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills, experience, and ongoing learning journey
+          <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">
+            // Skill matrix and competency levels
           </p>
         </motion.div>
 
-        {/* Dashboard Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {skillCategories.map((category, categoryIndex) => (
+        {/* Skills Matrix */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {techStack.map((category, index) => (
             <motion.div
-              key={categoryIndex}
-              initial={{ opacity: 0, y: 20 }}
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-soft hover:shadow-lg transition-all duration-300 group"
+              transition={{ delay: index * 0.1 }}
+              className="cyber-card p-6 corner-accent group"
             >
-              {/* Card Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
-                    {category.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {category.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {category.description}
-                    </p>
-                  </div>
-                </div>
+              {/* Header */}
+              <div className={`flex items-center gap-3 mb-6 pb-4 border-b border-cyber-border`}>
+                <span className={`${getColorClass(category.color)}`}>
+                  {category.icon}
+                </span>
+                <span className={`font-cyber text-sm tracking-widest ${getColorClass(category.color).split(' ')[0]}`}>
+                  {category.category}
+                </span>
               </div>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="text-center p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                  <div className="text-lg font-bold text-blue-600 dark:text-blue-400">
-                    {category.metrics.projects}
-                  </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Projects</div>
-                </div>
-                <div className="text-center p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                  <div className="text-lg font-bold text-green-600 dark:text-green-400">
-                    {category.metrics.experience}
-                  </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Experience</div>
-                </div>
-              </div>
-
-              {/* All Skills Display */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Skills</span>
-                  <TrendingUp size={14} className="text-green-500" />
-                </div>
+              {/* Skills with progress bars */}
+              <div className="space-y-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-2 h-2 rounded-full ${getSkillColor(skill.category)}`}></div>
-                      <span className="text-sm text-gray-600 dark:text-gray-300">{skill.name}</span>
+                  <div key={skillIndex} className="group/skill">
+                    <div className="flex justify-between items-center mb-1">
+                      <span className="text-sm text-gray-300 font-mono">{skill.name}</span>
+                      <span className={`text-xs font-cyber ${getColorClass(category.color).split(' ')[0]}`}>
+                        {skill.level}%
+                      </span>
                     </div>
-                    <span className="text-xs text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                    <div className="h-1 bg-cyber-border rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.5 + skillIndex * 0.1 }}
+                        className={`h-full ${getBgClass(category.color)}`}
+                      />
+                    </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Category stats */}
+              <div className="mt-6 pt-4 border-t border-cyber-border flex justify-between items-center">
+                <span className="text-xs text-gray-500 font-cyber">MODULES_LOADED</span>
+                <span className={`text-sm font-display font-bold ${getColorClass(category.color).split(' ')[0]}`}>
+                  {category.skills.length}
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Skills Legend */}
+        {/* Bottom stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-soft"
+          transition={{ delay: 0.6 }}
+          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
-          <div className="flex items-center gap-2 mb-4">
-            <Award size={20} className="text-blue-600 dark:text-blue-400" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Skill Levels</h3>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-300">Expert (90%+)</span>
+          {[
+            { label: "TOTAL_SKILLS", value: "30+", color: "neon-cyan" },
+            { label: "EXPERT_LEVEL", value: "12", color: "neon-magenta" },
+            { label: "STACK_DEPTH", value: "6", color: "neon-lime" },
+            { label: "AVG_PROFICIENCY", value: "85%", color: "neon-purple" },
+          ].map((stat, index) => (
+            <div key={index} className="text-center p-4 border border-cyber-border bg-cyber-dark/50">
+              <div className={`font-display text-2xl font-bold ${getColorClass(stat.color).split(' ')[0]} mb-1`}>
+                {stat.value}
+              </div>
+              <div className="text-xs font-cyber text-gray-400">{stat.label}</div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-300">Proficient (70-89%)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-300">Growing (50-69%)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-purple-500"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-300">Learning (&lt;50%)</span>
-            </div>
-          </div>
+          ))}
         </motion.div>
 
-        {/* Currently Focusing On */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-8 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/10 dark:bg-blue-400/10 rounded-full">
-            <Clock size={20} className="text-blue-600 dark:text-blue-400" />
-            <span className="text-gray-700 dark:text-gray-300">
-              Currently Focusing on: AWS, Azure, Docker & Advanced System Architecture
-            </span>
-          </div>
-        </motion.div>
+        {/* Section divider */}
+        <div className="section-divider mt-16" />
       </div>
     </section>
   );
 };
+
 export default Skills;

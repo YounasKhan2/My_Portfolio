@@ -249,22 +249,35 @@ const Projects = () => {
   const featuredProjects = projects.filter(p => p.featured);
 
   return (
-    <section id="projects" className="py-20 bg-gray-50/50 dark:bg-gray-900/50 scroll-mt-16">
-      <div className="container mx-auto px-4">
-        {/* Section Title */}
+    <section id="projects" className="py-24 relative overflow-hidden bg-cyber-dark scroll-mt-16">
+      {/* Background effects */}
+      <div className="absolute inset-0 cyber-grid opacity-30" />
+      <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-neon-magenta/5 to-transparent" />
+      
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-neon-magenta via-neon-cyan to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header - Cyberpunk */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Projects
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-cyber text-neon-magenta text-sm tracking-widest">02</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-neon-magenta/50 to-transparent" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+            PROJECTS<span className="text-neon-magenta">.</span>SHOWCASE
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A collection of projects showcasing my expertise in web development, mobile apps, and AI integration
+          <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">
+            // Deployed applications and digital creations
+          </p>
+          <p className="text-gray-300 max-w-2xl">
+            A collection of projects showcasing expertise in web development, mobile apps, and AI integration.
           </p>
         </motion.div>
 
@@ -278,42 +291,44 @@ const Projects = () => {
           <FeaturedProjectsCarousel projects={featuredProjects} />
         </motion.div>
 
-        {/* Stats Bar */}
+        {/* Stats Bar - Cyberpunk */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-soft"
+          className="mt-12 cyber-card p-6"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">
+            <div className="p-4 border-r border-cyber-border last:border-0">
+              <div className="text-3xl font-display font-bold text-neon-cyan mb-1">
                 {projects.length}+
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Total Projects</div>
+              <div className="text-xs font-cyber text-gray-400 tracking-wider">TOTAL_PROJECTS</div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400 mb-1">
+            <div className="p-4 border-r border-cyber-border last:border-0">
+              <div className="text-3xl font-display font-bold text-neon-lime mb-1">
                 {projects.filter(p => p.status === 'Live').length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Live Projects</div>
+              <div className="text-xs font-cyber text-gray-400 tracking-wider">LIVE_SYSTEMS</div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">
+            <div className="p-4 border-r border-cyber-border last:border-0">
+              <div className="text-3xl font-display font-bold text-neon-magenta mb-1">
                 {projects.filter(p => (Array.isArray(p.category) ? p.category.includes('ai') : p.category === 'ai')).length}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">AI Projects</div>
+              <div className="text-xs font-cyber text-gray-400 tracking-wider">AI_MODULES</div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-orange-600 dark:text-orange-400 mb-1">
+            <div className="p-4">
+              <div className="text-3xl font-display font-bold text-neon-purple mb-1">
                 {new Set(projects.flatMap(p => p.technologies)).size}+
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">Technologies</div>
+              <div className="text-xs font-cyber text-gray-400 tracking-wider">TECH_STACKS</div>
             </div>
           </div>
         </motion.div>
 
+        {/* Section divider */}
+        <div className="section-divider mt-16" />
       </div>
     </section>
   );

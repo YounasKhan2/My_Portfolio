@@ -48,67 +48,77 @@ const sectionFade = {
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gray-50/50 dark:bg-gray-900/50 scroll-mt-16">
-      <div className="container mx-auto px-4">
+    <section id="experience" className="py-24 relative overflow-hidden bg-cyber-dark scroll-mt-16">
+      {/* Background */}
+      <div className="absolute inset-0 cyber-grid opacity-30" />
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-neon-purple/5 to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header */}
         <motion.div
-          variants={sectionFade}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full" />
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Professional experience building scalable web applications and leading development teams.
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-cyber text-neon-purple text-sm tracking-widest">04</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-neon-purple/50 to-transparent" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+            EXPERIENCE<span className="text-neon-purple">.</span>LOG
+          </h2>
+          <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">
+            // Professional deployment history
           </p>
         </motion.div>
 
-        {/* Vertical Timeline */}
+        {/* Neon Timeline */}
         <div className="relative max-w-4xl mx-auto">
-          {/* Timeline rail */}
-          <div className="absolute left-5 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 opacity-40" />
+          {/* Timeline rail - neon glow */}
+          <div className="absolute left-5 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neon-cyan via-neon-magenta to-neon-purple shadow-neon-cyan" />
 
           <div className="space-y-8">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={`${exp.company}-${idx}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.06 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="relative pl-12 md:pl-16"
               >
-                {/* Timeline dot */}
-                <div className="absolute left-4 md:left-5 top-7 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-white dark:bg-gray-900 ring-4 ring-blue-500/30 shadow-[0_0_0_3px_rgba(59,130,246,0.08)]" />
+                {/* Timeline dot with glow */}
+                <div className={`absolute left-4 md:left-5 top-7 -translate-x-1/2 w-4 h-4 rounded-full bg-cyber-black border-2 ${idx === 0 ? 'border-neon-cyan shadow-neon-cyan animate-pulse' : 'border-neon-magenta'} shadow-[0_0_10px_currentColor]`} />
 
                 {/* Card */}
-                <div className="group relative bg-white dark:bg-gray-800 border border-gray-200/60 dark:border-gray-700/60 rounded-xl p-6 shadow-sm hover:shadow-xl hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300">
-                  <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                <div className="cyber-card p-6 group">
+                  <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover:scale-105 transition-transform">
+                      <div className="p-2 border border-neon-cyan/30 text-neon-cyan group-hover:bg-neon-cyan/10 transition-colors">
                         <Briefcase size={18} />
                       </div>
                       <div>
-                        <div className="text-lg font-semibold text-gray-900 dark:text-white">{exp.role}</div>
-                        <div className="text-sm text-gray-600 dark:text-gray-400">{exp.company}</div>
+                        <div className="text-lg font-display font-semibold text-white">{exp.role}</div>
+                        <div className="text-sm font-cyber text-gray-400">{exp.company}</div>
                       </div>
                     </div>
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
-                        <Calendar size={14} /> {exp.period}
+                      <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-cyber bg-cyber-gray border border-cyber-border text-gray-300">
+                        <Calendar size={12} /> {exp.period}
                       </span>
-                      <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs bg-blue-100/70 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
-                        <MapPin size={14} /> {exp.location}
+                      <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-cyber bg-neon-cyan/10 border border-neon-cyan/30 text-neon-cyan">
+                        <MapPin size={12} /> {exp.location}
                       </span>
                     </div>
                   </div>
 
-                  <ul className="mt-2 space-y-2">
+                  <ul className="space-y-3">
                     {exp.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                        <CheckCircle2 size={16} className="mt-0.5 text-green-500" />
-                        <span>{h}</span>
+                      <li key={i} className="flex items-start gap-3 text-gray-300">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon-lime flex-shrink-0" />
+                        <span className="text-sm leading-relaxed">{h}</span>
                       </li>
                     ))}
                   </ul>
@@ -117,6 +127,9 @@ const Experience = () => {
             ))}
           </div>
         </div>
+
+        {/* Section divider */}
+        <div className="section-divider mt-16" />
       </div>
     </section>
   );

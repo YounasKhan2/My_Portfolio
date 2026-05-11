@@ -68,13 +68,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-      </div>
+    <footer className="relative bg-cyber-black border-t border-cyber-border overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 cyber-grid opacity-20" />
 
       <div className="relative">
         {/* Main Footer Content */}
@@ -90,17 +86,18 @@ const Footer = () => {
                 transition={{ duration: 0.5 }}
                 className="mb-6"
               >
-                <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                  <Code className="text-blue-400" size={28} />
-                  Muhammad Younas
+                <h3 className="text-2xl font-display font-bold mb-4 flex items-center gap-2">
+                  <Code className="text-neon-cyan" size={28} />
+                  <span className="text-white">MY</span>
+                  <span className="font-cyber text-xs text-neon-cyan">v2.0</span>
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Full-stack developer passionate about creating innovative solutions with modern technologies. 
-                  Specializing in mobile and web applications that make a difference.
+                  Building the future, one line of code at a time.
                 </p>
-                <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Calendar size={16} />
-                  <span>Available for new projects</span>
+                <div className="flex items-center gap-2 text-xs font-cyber text-neon-lime">
+                  <span className="w-2 h-2 rounded-full bg-neon-lime animate-pulse" />
+                  <span>SYSTEM_ONLINE</span>
                 </div>
               </motion.div>
 
@@ -111,15 +108,15 @@ const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <h4 className="text-lg font-semibold mb-4">Connect With Me</h4>
-                <div className="flex gap-4">
+                <h4 className="font-cyber text-xs text-gray-500 tracking-widest mb-4">CONNECT_NODES</h4>
+                <div className="flex gap-3">
                   {socialLinks.map((link, index) => (
                     <motion.a
                       key={index}
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`relative p-3 bg-gray-800 hover:bg-gray-700 text-gray-400 ${link.color} rounded-lg transition-all duration-300 group`}
+                      className="relative p-3 border border-cyber-border text-gray-400 hover:text-neon-cyan hover:border-neon-cyan transition-all duration-300"
                       whileHover={{ y: -3, scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       aria-label={link.label}
@@ -139,9 +136,9 @@ const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <h4 className="text-lg font-semibold mb-6 text-blue-400">Navigation</h4>
-                <ul className="space-y-4">
-                  {quickLinks.map((item, index) => (
+                <h4 className="font-cyber text-neon-magenta text-xs tracking-widest mb-6">NAVIGATION</h4>
+                <ul className="space-y-3">
+                  {quickLinks.map((item) => (
                     <motion.li 
                       key={item.name}
                       whileHover={{ x: 5 }}
@@ -149,12 +146,10 @@ const Footer = () => {
                     >
                       <a
                         href={item.href}
-                        className="group flex flex-col gap-1 text-gray-300 hover:text-white transition-colors duration-200"
+                        className="group flex items-center gap-2 text-gray-400 hover:text-neon-cyan transition-colors duration-200"
                       >
-                        <span className="font-medium">{item.name}</span>
-                        <span className="text-xs text-gray-500 group-hover:text-gray-400">
-                          {item.description}
-                        </span>
+                        <span className="text-neon-cyan text-xs">›</span>
+                        <span className="text-sm">{item.name}</span>
                       </a>
                     </motion.li>
                   ))}
@@ -170,19 +165,19 @@ const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <h4 className="text-lg font-semibold mb-6 text-green-400">Services</h4>
-                <ul className="space-y-4">
-                  {services.map((service, index) => (
+                <h4 className="font-cyber text-neon-lime text-xs tracking-widest mb-6">SERVICES</h4>
+                <ul className="space-y-3">
+                  {services.map((service) => (
                     <motion.li 
                       key={service.name}
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
                       <div className="group flex flex-col gap-1">
-                        <span className="font-medium text-gray-300 group-hover:text-white transition-colors duration-200">
+                        <span className="text-sm text-gray-300 group-hover:text-neon-lime transition-colors duration-200">
                           {service.name}
                         </span>
-                        <span className="text-xs text-gray-500 group-hover:text-gray-400">
+                        <span className="text-xs text-gray-500">
                           {service.description}
                         </span>
                       </div>
@@ -200,44 +195,31 @@ const Footer = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <h4 className="text-lg font-semibold mb-6 text-purple-400">Get In Touch</h4>
+                <h4 className="font-cyber text-neon-purple text-xs tracking-widest mb-6">CONTACT_DATA</h4>
                 <div className="space-y-4">
                   <motion.a
                     href={`mailto:${contactInfo.email}`}
-                    className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200 group"
+                    className="flex items-center gap-3 text-gray-400 hover:text-neon-purple transition-colors duration-200 group"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="p-2 bg-gray-800 group-hover:bg-purple-600 rounded-lg transition-colors duration-200">
-                      <Mail size={16} />
-                    </div>
-                    <div>
-                      <div className="font-medium">Email</div>
-                      <div className="text-sm text-gray-400">{contactInfo.email}</div>
-                    </div>
+                    <Mail size={16} className="text-neon-purple" />
+                    <span className="text-sm font-mono">{contactInfo.email}</span>
                   </motion.a>
 
                   <motion.a
                     href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
-                    className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200 group"
+                    className="flex items-center gap-3 text-gray-400 hover:text-neon-lime transition-colors duration-200 group"
                     whileHover={{ x: 5 }}
                   >
-                    <div className="p-2 bg-gray-800 group-hover:bg-green-600 rounded-lg transition-colors duration-200">
-                      <Phone size={16} />
-                    </div>
-                    <div>
-                      <div className="font-medium">Phone</div>
-                      <div className="text-sm text-gray-400">{contactInfo.phone}</div>
-                    </div>
+                    <Phone size={16} className="text-neon-lime" />
+                    <span className="text-sm font-mono">{contactInfo.phone}</span>
                   </motion.a>
 
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <div className="p-2 bg-gray-800 rounded-lg">
-                      <MapPin size={16} />
-                    </div>
+                  <div className="flex items-center gap-3 text-gray-400">
+                    <MapPin size={16} className="text-neon-cyan" />
                     <div>
-                      <div className="font-medium">Location</div>
-                      <div className="text-sm text-gray-400">{contactInfo.location}</div>
-                      <div className="text-xs text-gray-500">{contactInfo.timezone}</div>
+                      <span className="text-sm font-mono">{contactInfo.location}</span>
+                      <span className="text-xs text-gray-500 font-cyber block">{contactInfo.timezone}</span>
                     </div>
                   </div>
                 </div>
@@ -247,7 +229,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 bg-gray-900/50 backdrop-blur-sm">
+        <div className="border-t border-cyber-border bg-cyber-dark/50">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -256,29 +238,30 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-col md:flex-row items-center justify-between gap-4"
             >
-              <div className="flex items-center gap-2 text-gray-400">
-                <span>© {currentYear} Muhammad Younas.</span>
-                <span>Crafted with</span>
-                <Heart size={16} className="text-red-500 animate-pulse" />
-                <span>and Next.js</span>
+              <div className="flex items-center gap-2 text-xs font-cyber text-gray-500">
+                <span>© {currentYear} SYSTEM_YK</span>
+                <span className="text-neon-cyan">|</span>
+                <span>CRAFTED_WITH</span>
+                <Heart size={12} className="text-neon-magenta" />
+                <span>AND_CODE</span>
               </div>
               
-              <div className="flex items-center gap-6 text-sm text-gray-400">
+              <div className="flex items-center gap-6 text-xs font-cyber text-gray-500">
                 <a 
                   href="/privacy" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-neon-cyan transition-colors duration-200"
                 >
-                  Privacy Policy
+                  PRIVACY_POLICY
                 </a>
                 <a 
                   href="/terms" 
-                  className="hover:text-white transition-colors duration-200"
+                  className="hover:text-neon-cyan transition-colors duration-200"
                 >
-                  Terms of Service
+                  TERMS_OF_SERVICE
                 </a>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span>Available for work</span>
+                <div className="flex items-center gap-2 text-neon-lime">
+                  <div className="w-2 h-2 bg-neon-lime rounded-full animate-pulse"></div>
+                  <span>AVAILABLE_FOR_WORK</span>
                 </div>
               </div>
             </motion.div>

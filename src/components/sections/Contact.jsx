@@ -8,7 +8,8 @@ import {
   Github, 
   Linkedin, 
   Instagram,
-  Link as LinkIcon
+  Link as LinkIcon,
+  Terminal
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -119,24 +120,34 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50/50 dark:bg-gray-900/50 scroll-mt-16">
-      <div className="container mx-auto px-4">
-        {/* Section Title */}
+    <section id="contact" className="py-24 relative overflow-hidden bg-cyber-black scroll-mt-16">
+      {/* Background */}
+      <div className="absolute inset-0 cyber-grid opacity-40" />
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-neon-cyan/5 to-transparent" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get In Touch
+          <div className="flex items-center gap-4 mb-4">
+            <span className="font-cyber text-neon-cyan text-sm tracking-widest">05</span>
+            <div className="h-px flex-1 bg-gradient-to-r from-neon-cyan/50 to-transparent" />
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+            INITIATE<span className="text-neon-cyan">.</span>CONTACT
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <p className="font-cyber text-gray-400 text-sm tracking-widest">
+            // Establish communication channel
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Information - Terminal Style */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -144,39 +155,47 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             className="space-y-8"
           >
-            <div className="prose dark:prose-invert">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Let's Connect
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me through any of the following means.
-              </p>
-            </div>
+            {/* Terminal window */}
+            <div className="cyber-card p-6 corner-accent">
+              <div className="flex items-center gap-2 mb-4 pb-4 border-b border-cyber-border">
+                <Terminal size={18} className="text-neon-cyan" />
+                <span className="font-cyber text-neon-cyan text-xs tracking-widest">contact_info.exe</span>
+                <div className="flex-1" />
+                <div className="flex gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-red-500" />
+                  <span className="w-2 h-2 rounded-full bg-yellow-500" />
+                  <span className="w-2 h-2 rounded-full bg-green-500" />
+                </div>
+              </div>
 
-            {/* Contact Details */}
-            <div className="space-y-4">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={index}
-                  href={info.href}
-                  whileHover={{ x: 5 }}
-                  className="flex items-center gap-4 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100 dark:bg-blue-900/20">
-                    {info.icon}
-                  </div>
-                  <div>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">{info.label}</div>
-                    <div className="font-medium">{info.value}</div>
-                  </div>
-                </motion.a>
-              ))}
+              <div className="font-mono text-sm space-y-4">
+                <p className="text-gray-400">$ whoami</p>
+                <p className="text-white">Full Stack Developer open for collaboration</p>
+                
+                <p className="text-gray-400 mt-4">$ cat contact_details.json</p>
+                <div className="space-y-3 mt-2">
+                  {contactInfo.map((info, index) => (
+                    <motion.a
+                      key={index}
+                      href={info.href}
+                      whileHover={{ x: 5 }}
+                      className="flex items-center gap-4 text-gray-300 hover:text-neon-cyan transition-colors group"
+                    >
+                      <span className="text-neon-cyan">{info.icon}</span>
+                      <div>
+                        <span className="text-gray-500 font-cyber text-xs block">{info.label}</span>
+                        <span className="font-medium group-hover:text-neon-cyan transition-colors">{info.value}</span>
+                      </div>
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Social Links */}
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                Follow Me
+            <div className="cyber-card p-6">
+              <h4 className="font-cyber text-neon-magenta text-xs tracking-widest mb-4">
+                CONNECT_NODES
               </h4>
               <div className="flex gap-4">
                 {socialLinks.map((link, index) => (
@@ -185,8 +204,8 @@ const Contact = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/20 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    whileHover={{ y: -3 }}
+                    className="w-12 h-12 flex items-center justify-center border border-cyber-border text-gray-400 hover:border-neon-magenta hover:text-neon-magenta transition-all"
+                    whileHover={{ y: -3, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={link.label}
                   >
@@ -197,89 +216,98 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form - Terminal Input Style */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="cyber-card p-6 corner-accent">
+              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-cyber-border">
+                <Send size={18} className="text-neon-lime" />
+                <span className="font-cyber text-neon-lime text-xs tracking-widest">transmit_message.exe</span>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-cyber text-xs text-gray-400 tracking-widest mb-2">
+                      FROM_NAME
+                    </label>
+                    <input
+                      type="text"
+                      name="from_name"
+                      value={formData.from_name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-cyber-dark border border-cyber-border focus:border-neon-cyan focus:outline-none text-white font-mono transition-colors"
+                      placeholder="your_name"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-cyber text-xs text-gray-400 tracking-widest mb-2">
+                      FROM_EMAIL
+                    </label>
+                    <input
+                      type="email"
+                      name="from_email"
+                      value={formData.from_email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-cyber-dark border border-cyber-border focus:border-neon-cyan focus:outline-none text-white font-mono transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
                 <div>
-                  <label htmlFor="from_name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Your Name
+                  <label className="block font-cyber text-xs text-gray-400 tracking-widest mb-2">
+                    SUBJECT_LINE
                   </label>
                   <input
                     type="text"
-                    id="from_name"
-                    name="from_name"
-                    value={formData.from_name}
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300"
+                    className="w-full px-4 py-3 bg-cyber-dark border border-cyber-border focus:border-neon-cyan focus:outline-none text-white font-mono transition-colors"
+                    placeholder="Message subject..."
                   />
                 </div>
                 <div>
-                  <label htmlFor="from_email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Your Email
+                  <label className="block font-cyber text-xs text-gray-400 tracking-widest mb-2">
+                    MESSAGE_DATA
                   </label>
-                  <input
-                    type="email"
-                    id="from_email"
-                    name="from_email"
-                    value={formData.from_email}
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300"
-                  />
+                    rows={5}
+                    className="w-full px-4 py-3 bg-cyber-dark border border-cyber-border focus:border-neon-cyan focus:outline-none text-white font-mono transition-colors resize-none"
+                    placeholder="Enter your message..."
+                  ></textarea>
                 </div>
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 focus:border-blue-500 dark:focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-gray-700 dark:text-gray-300 resize-none"
-                ></textarea>
-              </div>
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.01 }}
-                whileTap={{ scale: 0.99 }}
-              >
-                {isSubmitting ? (
-                  <span>Sending...</span>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    <span>Send Message</span>
-                  </>
-                )}
-              </motion.button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="cyber-button w-full py-4 font-cyber text-sm tracking-widest disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {isSubmitting ? (
+                      <>
+                        <span className="animate-pulse">TRANSMITTING...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        <span>EXECUTE_SEND</span>
+                      </>
+                    )}
+                  </span>
+                </button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

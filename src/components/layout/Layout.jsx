@@ -60,14 +60,14 @@ const Layout = ({ children }) => {
   // Avoid theme flash on initial load
   if (!mounted) {
     return (
-      <div className="relative min-h-screen bg-gray-50">
-        <div className="h-16 bg-white/80 backdrop-blur-sm" />
+      <div className="relative min-h-screen bg-cyber-black">
+        <div className="h-16 bg-cyber-dark/80 backdrop-blur-sm" />
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen bg-gray-50 dark:bg-[#0B1121] transition-colors duration-300">
+    <div className="relative min-h-screen bg-cyber-black transition-colors duration-300">
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Sidebar />
       <main className="transition-colors duration-300">

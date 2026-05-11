@@ -37,7 +37,13 @@ const FeaturedProjectsCarousel = ({ projects }) => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Main Carousel Container */}
-      <div className="relative overflow-hidden rounded-2xl bg-gray-900 shadow-2xl">
+      <div className="relative overflow-hidden border border-cyber-border bg-cyber-dark">
+        {/* Corner accents */}
+        <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-neon-cyan z-20" />
+        <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-neon-cyan z-20" />
+        <div className="absolute bottom-0 left-0 w-8 h-8 border-l-2 border-b-2 border-neon-cyan z-20" />
+        <div className="absolute bottom-0 right-0 w-8 h-8 border-r-2 border-b-2 border-neon-cyan z-20" />
+        
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -56,18 +62,27 @@ const FeaturedProjectsCarousel = ({ projects }) => {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center">
-                  <div className="text-center text-white p-8">
-                    <h3 className="text-3xl md:text-5xl font-bold mb-2">{currentProject.title}</h3>
-                    <p className="text-lg md:text-xl opacity-90">{currentProject.shortDesc}</p>
+                <div className="w-full h-full bg-gradient-to-br from-cyber-gray via-cyber-dark to-cyber-black flex items-center justify-center">
+                  <div className="text-center p-8">
+                    <h3 className="text-3xl md:text-5xl font-display font-bold mb-2 text-neon-cyan">
+                      {currentProject.title}
+                    </h3>
+                    <p className="text-lg md:text-xl text-gray-400">{currentProject.shortDesc}</p>
                   </div>
                 </div>
               )}
               {/* Dark Gradient Overlay for Caption */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cyber-black via-cyber-black/60 to-transparent" />
             </div>
 
-            {/* Caption - Like CoreUI CCarouselCaption */}
+            {/* Scan line effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-cyan/5 to-transparent h-32 pointer-events-none"
+              animate={{ top: ['-10%', '110%'] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            />
+
+            {/* Caption - Cyberpunk Style */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -78,25 +93,25 @@ const FeaturedProjectsCarousel = ({ projects }) => {
                 {/* Badges */}
                 <div className="flex items-center gap-2 mb-3">
                   {currentProject.featured && (
-                    <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/90 text-yellow-900">
-                      <Star size={12} /> Featured
+                    <span className="inline-flex items-center gap-1 px-3 py-1 text-xs font-cyber tracking-wider bg-neon-magenta/20 text-neon-magenta border border-neon-magenta/50">
+                      <Star size={12} /> FEATURED
                     </span>
                   )}
-                  <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/30 text-blue-100 border border-blue-400/30">
+                  <span className="px-3 py-1 text-xs font-cyber tracking-wider bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/50">
                     {Array.isArray(currentProject.category) ? currentProject.category[0] : currentProject.category}
                   </span>
-                  <span className="px-3 py-1 text-xs font-medium rounded-full bg-gray-500/30 text-gray-100 border border-gray-400/30">
+                  <span className="px-3 py-1 text-xs font-cyber tracking-wider bg-cyber-gray text-gray-300 border border-cyber-border">
                     {currentProject.year}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
+                <h3 className="text-2xl md:text-3xl font-display font-bold mb-2 text-white">
                   {currentProject.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm md:text-base text-gray-200 mb-4 line-clamp-2">
+                <p className="text-sm md:text-base text-gray-300 mb-4 line-clamp-2">
                   {currentProject.description}
                 </p>
 
@@ -105,7 +120,7 @@ const FeaturedProjectsCarousel = ({ projects }) => {
                   {currentProject.technologies.slice(0, 5).map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-2 py-0.5 text-xs rounded bg-white/10 text-white/90 border border-white/20"
+                      className="px-2 py-0.5 text-xs font-cyber rounded bg-cyber-gray/80 text-gray-300 border border-cyber-border"
                     >
                       {tech}
                     </span>
@@ -119,10 +134,10 @@ const FeaturedProjectsCarousel = ({ projects }) => {
                       href={currentProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:scale-105"
+                      className="cyber-button px-4 py-2 text-xs inline-flex items-center gap-2"
                     >
-                      <ExternalLink size={16} />
-                      <span>View Project</span>
+                      <ExternalLink size={14} />
+                      <span>ACCESS_PROJECT</span>
                     </a>
                   )}
                   {currentProject.github && (
@@ -130,79 +145,69 @@ const FeaturedProjectsCarousel = ({ projects }) => {
                       href={currentProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm font-medium rounded-lg transition-all duration-200 hover:scale-105"
+                      className="px-4 py-2 border border-cyber-border text-gray-400 hover:text-neon-magenta hover:border-neon-magenta transition-all text-xs font-cyber inline-flex items-center gap-2"
                     >
-                      <Github size={16} />
-                      <span>Source Code</span>
+                      <Github size={14} />
+                      <span>SOURCE_CODE</span>
                     </a>
                   )}
                 </div>
               </div>
             </motion.div>
 
-            {/* Mobile Caption (Always visible) */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white md:hidden bg-gradient-to-t from-black/95 to-transparent">
-              <h3 className="text-lg font-bold mb-1">{currentProject.title}</h3>
-              <p className="text-xs text-gray-300 line-clamp-1">{currentProject.shortDesc}</p>
+            {/* Mobile Caption */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white md:hidden bg-gradient-to-t from-cyber-black to-transparent">
+              <h3 className="text-lg font-display font-bold mb-1 text-neon-cyan">{currentProject.title}</h3>
+              <p className="text-xs text-gray-400 line-clamp-1">{currentProject.shortDesc}</p>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* Controls - Like CoreUI controls */}
+        {/* Controls - Cyberpunk Style */}
         {projects.length > 1 && (
           <>
-            {/* Previous Button - 15% width area like CoreUI */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-0 bottom-0 w-[15%] z-10 flex items-center justify-start pl-4 bg-gradient-to-r from-black/50 to-transparent opacity-50 hover:opacity-90 transition-opacity duration-150"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 border border-cyber-border bg-cyber-dark/80 hover:border-neon-cyan hover:text-neon-cyan transition-all"
               aria-label="Previous slide"
             >
-              <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors">
-                <ChevronLeft size={24} />
-              </span>
+              <ChevronLeft size={24} />
             </button>
 
-            {/* Next Button - 15% width area like CoreUI */}
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-0 bottom-0 w-[15%] z-10 flex items-center justify-end pr-4 bg-gradient-to-l from-black/50 to-transparent opacity-50 hover:opacity-90 transition-opacity duration-150"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 border border-cyber-border bg-cyber-dark/80 hover:border-neon-cyan hover:text-neon-cyan transition-all"
               aria-label="Next slide"
             >
-              <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors">
-                <ChevronRight size={24} />
-              </span>
+              <ChevronRight size={24} />
             </button>
           </>
         )}
       </div>
 
-      {/* Indicators - Like CoreUI indicators */}
+      {/* Indicators - Cyberpunk Style */}
       {projects.length > 1 && (
-        <div className="flex justify-center items-center gap-2 mt-4">
+        <div className="flex justify-center items-center gap-3 mt-4">
           {projects.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`h-1 rounded-full transition-all duration-600 ease-out ${
+              className={`h-1 transition-all duration-300 ${
                 index === currentIndex
-                  ? 'w-8 bg-white opacity-100'
-                  : 'w-8 bg-white/50 hover:bg-white/70'
+                  ? 'w-8 bg-neon-cyan shadow-neon-cyan'
+                  : 'w-4 bg-cyber-border hover:bg-gray-500'
               }`}
-              style={{ 
-                height: '3px',
-                transition: 'opacity 0.6s ease, width 0.3s ease'
-              }}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       )}
 
-      {/* Progress Bar */}
+      {/* Progress Bar - Neon style */}
       {projects.length > 1 && !isPaused && (
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-700/50 z-20">
+        <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-cyber-border z-20">
           <motion.div
-            className="h-full bg-blue-600"
+            className="h-full bg-neon-cyan shadow-neon-cyan"
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 6, ease: 'linear' }}

@@ -1,86 +1,263 @@
 /* File: src/styles/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
+    /* Cyberpunk Dark Theme */
+    --cyber-black: #0a0a0f;
+    --cyber-dark: #0f0f1a;
+    --cyber-gray: #151520;
+    --cyber-light: #1a1a2e;
+    --cyber-border: #2d2d44;
+    
+    /* Neon Accents */
+    --neon-cyan: #00f5ff;
+    --neon-magenta: #ff00ff;
+    --neon-lime: #39ff14;
+    --neon-purple: #bf00ff;
+    --neon-orange: #ff5f1f;
+    --neon-pink: #ff006e;
+    
+    /* Theme Variables */
+    --background: 240 20% 4%;
     --foreground: 0 0% 100%;
+    --primary: 180 100% 50%;
+    --secondary: 300 100% 50%;
   }
 }
 
 @layer base {
-  body {
-    @apply bg-background text-foreground font-sans;
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
-  }
-  
-  /* Inter font optimizations */
   * {
-    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    box-sizing: border-box;
   }
   
-  /* Better font rendering */
   html {
+    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
   }
   
-  /* Code font styling */
-  code, pre, .font-mono {
-    font-feature-settings: 'liga' 1, 'calt' 1;
+  body {
+    @apply bg-cyber-black text-white font-sans;
+    background-color: var(--cyber-black);
+    overflow-x: hidden;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background: var(--neon-cyan);
+    color: var(--cyber-black);
   }
 }
 
-/* Sidebar always visible on desktop */
-@media (min-width: 1024px) {
-  .sidebar-desktop {
-    transform: translateX(0) !important;
-  }
+/* Cyberpunk Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
 
-/* Layout structure fixes */
-.main-content {
-  transition: margin-left 0.3s ease-in-out;
+::-webkit-scrollbar-track {
+  background: var(--cyber-dark);
 }
 
-/* Z-index hierarchy */
-.sidebar-layer {
-  z-index: 50;
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-border);
+  border-radius: 4px;
 }
 
-.header-layer {
-  z-index: 40;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
 }
 
-.content-layer {
-  z-index: 30;
-}
-
-/* Add smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Hide scrollbar utility */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Line clamp utilities for carousel captions */
+/* Neon Text Effects */
+.text-neon-cyan {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+}
+
+.text-neon-magenta {
+  color: var(--neon-magenta);
+  text-shadow: 0 0 10px var(--neon-magenta), 0 0 20px var(--neon-magenta), 0 0 40px var(--neon-magenta);
+}
+
+.text-neon-lime {
+  color: var(--neon-lime);
+  text-shadow: 0 0 10px var(--neon-lime), 0 0 20px var(--neon-lime), 0 0 40px var(--neon-lime);
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--neon-magenta);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--neon-cyan);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(12px, 9999px, 67px, 0);
+  }
+  20% {
+    clip: rect(78px, 9999px, 2px, 0);
+  }
+  40% {
+    clip: rect(15px, 9999px, 89px, 0);
+  }
+  60% {
+    clip: rect(54px, 9999px, 23px, 0);
+  }
+  80% {
+    clip: rect(89px, 9999px, 12px, 0);
+  }
+  100% {
+    clip: rect(34px, 9999px, 67px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(65px, 9999px, 99px, 0);
+  }
+  20% {
+    clip: rect(12px, 9999px, 45px, 0);
+  }
+  40% {
+    clip: rect(87px, 9999px, 12px, 0);
+  }
+  60% {
+    clip: rect(23px, 9999px, 78px, 0);
+  }
+  80% {
+    clip: rect(56px, 9999px, 34px, 0);
+  }
+  100% {
+    clip: rect(12px, 9999px, 89px, 0);
+  }
+}
+
+/* Scanline Effect */
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 245, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Neon Border */
+.neon-border {
+  position: relative;
+  border: 1px solid var(--cyber-border);
+}
+
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(45deg, var(--neon-cyan), var(--neon-magenta), var(--neon-cyan));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.neon-border:hover::before {
+  opacity: 1;
+}
+
+/* Terminal/Cyber Button */
+.cyber-button {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-family: 'Share Tech Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  transition: left 0.5s ease;
+}
+
+.cyber-button:hover::before {
+  left: 100%;
+}
+
+.cyber-button:hover {
+  background: var(--neon-cyan);
+  color: var(--cyber-black);
+  box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan);
+}
+
+/* Line clamp utilities */
 .line-clamp-1 {
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -100,4 +277,77 @@ html {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow Effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+}
+
+.glow-magenta {
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+}
+
+/* Card Hover Effect */
+.cyber-card {
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--cyber-border);
+  transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Section Divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-magenta), transparent);
+  margin: 4rem 0;
+}
+
+/* Code Block Styling */
+.code-block {
+  background: var(--cyber-gray);
+  border-left: 3px solid var(--neon-cyan);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Corner Accents */
+.corner-accent {
+  position: relative;
+}
+
+.corner-accent::before,
+.corner-accent::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--neon-cyan);
+}
+
+.corner-accent::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.corner-accent::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
 }
