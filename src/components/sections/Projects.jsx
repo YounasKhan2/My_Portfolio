@@ -270,7 +270,7 @@ const Projects = () => {
             <span className="font-cyber text-neon-magenta text-sm tracking-widest">02</span>
             <div className="h-px flex-1 bg-gradient-to-r from-neon-magenta/50 to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2">
             PROJECTS<span className="text-neon-magenta">.</span>SHOWCASE
           </h2>
           <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">

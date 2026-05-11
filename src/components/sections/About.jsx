@@ -62,7 +62,7 @@ const About = () => {
               <span className="font-cyber text-neon-cyan text-sm tracking-widest">01</span>
               <div className="h-px flex-1 bg-gradient-to-r from-neon-cyan/50 to-transparent" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2">
               SYSTEM<span className="text-neon-cyan">.</span>INFO
             </h2>
             <p className="font-cyber text-gray-400 text-sm tracking-widest">

@@ -121,7 +121,7 @@ const Skills = () => {
             <span className="font-cyber text-neon-lime text-sm tracking-widest">03</span>
             <div className="h-px flex-1 bg-gradient-to-r from-neon-lime/50 to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2">
             TECH<span className="text-neon-lime">.</span>STACK
           </h2>
           <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">

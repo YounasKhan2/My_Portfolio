@@ -50,7 +50,7 @@ const Articles = () => {
             <span className="font-cyber text-neon-orange text-sm tracking-widest">06</span>
             <div className="h-px flex-1 bg-gradient-to-r from-neon-orange/50 to-transparent" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-2">
             DATA<span className="text-neon-orange">.</span>LOGS
           </h2>
           <p className="font-cyber text-gray-400 text-sm tracking-widest mb-4">
