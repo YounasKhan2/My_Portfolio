@@ -57,9 +57,8 @@ const Sidebar = () => {
       <button
         onClick={() => setIsOpen(true)}
         className={`
-          fixed top-4 left-4 z-50 p-2 bg-white/80 dark:bg-gray-800/80 rounded-lg 
-          shadow-lg text-gray-600 hover:text-gray-900 dark:text-gray-300 
-          dark:hover:text-white lg:hidden backdrop-blur-sm
+          fixed top-4 left-4 z-50 p-2 bg-cyber-dark/90 border border-cyber-border
+          text-gray-400 hover:text-neon-cyan hover:border-neon-cyan lg:hidden
           ${!showSidebar && 'lg:opacity-0 lg:pointer-events-none'}
         `}
         aria-label="Toggle Menu"
@@ -97,11 +96,11 @@ const Sidebar = () => {
               }}
               className="flex flex-col items-center gap-2"
             >
-              <div className="w-1 h-16 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent rounded-full" />
-              <motion.div className="text-blue-500/70 dark:text-blue-400/70">
+              <div className="w-1 h-16 bg-gradient-to-b from-transparent via-neon-cyan/50 to-transparent" />
+              <motion.div className="text-neon-cyan/70">
                 <ChevronRight size={20} />
               </motion.div>
-              <div className="w-1 h-16 bg-gradient-to-b from-transparent via-blue-500/50 to-transparent rounded-full" />
+              <div className="w-1 h-16 bg-gradient-to-b from-transparent via-neon-cyan/50 to-transparent" />
             </motion.div>
           </motion.div>
         )}
@@ -114,15 +113,15 @@ const Sidebar = () => {
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           ${isHovered ? 'lg:translate-x-0' : 'lg:-translate-x-full'}
           ${!showSidebar && 'lg:opacity-0 lg:pointer-events-none'}
-          w-64 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm lg:w-auto lg:min-w-[200px]
-          lg:bg-transparent lg:dark:bg-transparent
+          w-64 bg-cyber-dark/95 backdrop-blur-sm lg:w-auto lg:min-w-[200px]
+          lg:bg-transparent border-r border-cyber-border lg:border-0
         `}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Close button - only visible on mobile */}
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 p-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white lg:hidden"
+          className="absolute top-4 right-4 p-2 text-gray-400 hover:text-neon-cyan lg:hidden"
           aria-label="Close Menu"
         >
           <X size={24} />
@@ -132,8 +131,8 @@ const Sidebar = () => {
         <nav className="lg:absolute lg:top-1/2 lg:-translate-y-1/2 w-full">
           <div className={`
             p-6 lg:p-8
-            lg:bg-white/10 lg:dark:bg-gray-900/10 lg:backdrop-blur-sm lg:rounded-r-xl
-            ${isHovered ? 'lg:shadow-lg' : ''}
+            lg:bg-cyber-dark/80 lg:backdrop-blur-sm lg:border lg:border-cyber-border lg:rounded-r-xl
+            ${isHovered ? 'lg:shadow-[0_0_20px_rgba(0,255,255,0.1)]' : ''}
           `}>
             <ul className="space-y-8">
               {navItems.map((item, index) => (
@@ -142,15 +141,15 @@ const Sidebar = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link 
+                  <Link
                     href={item.href}
-                    className="flex items-center gap-3 text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-200 text-lg whitespace-nowrap"
+                    className="flex items-center gap-3 text-gray-400 hover:text-neon-cyan transition-colors duration-200 text-sm font-cyber tracking-wider uppercase whitespace-nowrap"
                     onClick={() => {
                       setIsOpen(false);
                       setIsHovered(false);
                     }}
                   >
-                    {item.icon}
+                    <span className="text-neon-cyan">{item.icon}</span>
                     <span>{item.title}</span>
                   </Link>
                 </motion.li>
@@ -162,8 +161,8 @@ const Sidebar = () => {
 
       {/* Overlay - only visible on mobile when sidebar is open */}
       {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+        <div
+          className="fixed inset-0 bg-cyber-black/80 z-40 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
