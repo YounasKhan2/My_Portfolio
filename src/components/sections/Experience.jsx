@@ -4,36 +4,28 @@ import { Briefcase, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
 
 const experiences = [
   {
+    company: 'Preesoft',
+    role: 'Full Stack Web Developer',
+    location: 'Lahore, Pakistan',
+    period: 'May 2024 – Present',
+    highlights: [
+      'Architect and maintain RESTful and microservices-based back-end APIs using Node.js and NestJS, achieving 99.9% system uptime',
+      'Build and optimize responsive, high-performance UIs using Next.js, React, Redux, and Tailwind CSS, improving page load times by 35%',
+      'Design and manage relational and non-relational databases (PostgreSQL, MongoDB, Redis) with focus on query optimization and caching',
+      'Refactor legacy codebases to modern TypeScript standards, reducing technical debt and improving scalability by 40%',
+      'Deploy and manage applications on AWS and Azure using Docker containers and Railway, ensuring seamless CI/CD workflows',
+      'Lead code reviews and debugging sessions, enforcing best practices and driving a 30% reduction in post-deployment bugs',
+    ],
+  },
+  {
     company: 'Freelance / Client Projects',
     role: 'Full‑Stack Developer',
     location: 'Remote',
-    period: '2023 – Present',
+    period: '2023 – 2024',
     highlights: [
       'Delivered 5+ production apps with Next.js, React, and Node.js',
       'Integrated AI features (AssemblyAI, OpenAI) into learning platforms',
       'Boosted performance and SEO via image optimization and code‑splitting',
-    ],
-  },
-  {
-    company: 'Try Roy — AI Learning Platform',
-    role: 'Founder & Lead Developer',
-    location: 'Lahore, Pakistan',
-    period: '2024 – 2025',
-    highlights: [
-      'Designed AI‑powered study assistant workflows end‑to‑end',
-      'Built responsive UI, authentication, and user onboarding',
-      'Integrated speech‑to‑text and GPT‑based summary generation',
-    ],
-  },
-  {
-    company: 'Conversational AI Agent (LiveKit + FastAPI)',
-    role: 'AI Engineer (Project)',
-    location: 'Remote',
-    period: '2025',
-    highlights: [
-      'Implemented real‑time streaming with LiveKit and WebRTC',
-      'Integrated STT, LLM reasoning loop, and TTS pipeline',
-      'Added VAD for low‑latency, natural turn‑taking',
     ],
   },
   {
@@ -68,7 +60,7 @@ const Experience = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Experience</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full" />
           <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Roles, projects, and impact from recent work across web and AI.
+            Professional experience building scalable web applications and leading development teams.
           </p>
         </motion.div>
 

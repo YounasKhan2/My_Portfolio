@@ -5,84 +5,86 @@ import { Code, Database, Palette, Terminal, Wrench, TrendingUp, Award, Clock } f
 const Skills = () => {
   const skillCategories = [
     {
+      title: "Languages",
+      icon: <Terminal size={24} />,
+      description: "Programming languages",
+      metrics: { projects: 50, experience: "2+ years" },
+      skills: [
+        { name: "JavaScript", level: 90, category: "expert" },
+        { name: "TypeScript", level: 85, category: "expert" },
+        { name: "Dart", level: 70, category: "core" },
+        { name: "C++", level: 60, category: "growing" },
+        { name: "Java", level: 65, category: "core" },
+      ]
+    },
+    {
       title: "Frontend Development",
       icon: <Code size={24} />,
-      description: "Modern web & mobile interfaces",
-      metrics: { projects: 8, experience: "2+ years" },
+      description: "Modern web interfaces",
+      metrics: { projects: 25, experience: "2+ years" },
       skills: [
-        { name: "Dart", level: 80, category: "core" },
-        { name: "Next.js", level: 60, category: "growing" },
-        { name: "JavaScript", level: 70, category: "core" },
+        { name: "React.js", level: 90, category: "expert" },
+        { name: "Next.js", level: 90, category: "expert" },
+        { name: "Redux / Redux Toolkit", level: 85, category: "expert" },
         { name: "Tailwind CSS", level: 90, category: "expert" },
-        { name: "HTML/CSS", level: 90, category: "expert" },
-        { name: "Java Swing", level: 65, category: "core" },
-        { name: "Flutter", level: 85, category: "expert" },
-        { name: "React Native", level: 70, category: "core" },
+        { name: "HTML5 / CSS3", level: 90, category: "expert" },
       ]
     },
     {
       title: "Backend Development",
       icon: <Database size={24} />,
       description: "Scalable server solutions",
-      metrics: { projects: 6, experience: "1.5+ years" },
+      metrics: { projects: 20, experience: "2+ years" },
       skills: [
-        { name: "MySQL", level: 75, category: "core" },
-        { name: "REST APIs", level: 90, category: "expert" },
-        { name: "Firebase", level: 70, category: "core" },
-        { name: "Supabase", level: 70, category: "core" },
-        { name: "Python", level: 60, category: "growing" },
-        { name: "C++", level: 60, category: "growing" },
-          { name: "Flask", level: 65, category: "growing" },
-          { name: "Django", level: 65, category: "growing" },
-          { name: "PHP", level: 70, category: "core" },
-          { name: "Laravel", level: 60, category: "growing" },
+        { name: "Node.js", level: 90, category: "expert" },
+        { name: "NestJS", level: 85, category: "expert" },
+        { name: "Express.js", level: 90, category: "expert" },
+        { name: "RESTful APIs", level: 95, category: "expert" },
+        { name: "GraphQL", level: 70, category: "core" },
+        { name: "Microservices", level: 80, category: "expert" },
+        { name: "WebSockets / Webhooks", level: 75, category: "core" },
       ]
     },
     {
-      title: "Computer Science",
-      icon: <Terminal size={24} />,
-      description: "Core CS fundamentals",
-      metrics: { projects: 4, experience: "2+ years" },
+      title: "Databases",
+      icon: <Database size={24} />,
+      description: "Data storage & management",
+      metrics: { projects: 18, experience: "2+ years" },
       skills: [
-        { name: "OOP's Concepts", level: 85, category: "expert" },
-        { name: "Data Structures & Algorithms", level: 75, category: "core" },
+        { name: "PostgreSQL", level: 85, category: "expert" },
+        { name: "MongoDB", level: 85, category: "expert" },
+        { name: "Redis", level: 80, category: "expert" },
+        { name: "SQLite", level: 75, category: "core" },
+        { name: "Prisma ORM", level: 85, category: "expert" },
+        { name: "Mongoose", level: 80, category: "expert" },
       ]
     },
     {
-      title: "UI/UX Design",
-      icon: <Palette size={24} />,
-      description: "User-centered design",
-      metrics: { projects: 5, experience: "1+ years" },
+      title: "Cloud & DevOps",
+      icon: <Wrench size={24} />,
+      description: "Cloud infrastructure & CI/CD",
+      metrics: { projects: 15, experience: "1.5+ years" },
       skills: [
-        { name: "Responsive Design", level: 70, category: "core" },
-        { name: "User Interface", level: 70, category: "core" },
-        { name: "Material UI", level: 80, category: "core" },
-        { name: "User Experience", level: 80, category: "core" },
-        { name: "Figma", level: 40, category: "learning" },
+        { name: "AWS (EC2, S3, Lambda)", level: 80, category: "expert" },
+        { name: "Microsoft Azure", level: 75, category: "core" },
+        { name: "Docker", level: 80, category: "expert" },
+        { name: "Vercel", level: 85, category: "expert" },
+        { name: "Railway", level: 80, category: "expert" },
+        { name: "GitHub Actions / CI/CD", level: 80, category: "expert" },
       ]
     },
     {
-      title: "Tools & DevOps",
+      title: "Tools & Practices",
       icon: <Wrench size={24} />,
       description: "Development workflow",
-      metrics: { projects: 10, experience: "2+ years" },
+      metrics: { projects: 50, experience: "2+ years" },
       skills: [
-        { name: "Git", level: 85, category: "expert" },
-        { name: "Github", level: 90, category: "expert" },
-        { name: "Restful APIs", level: 60, category: "growing" },
-        { name: "WebSockets", level: 40, category: "learning" },
-        { name: "Android Development", level: 80, category: "expert" },
-        { name: "Authentication", level: 60, category: "growing" },
-      ]
-    },
-    {
-      title: "Deployment & Hosting",
-      icon: <Wrench size={24} />,
-      description: "Cloud deployment solutions",
-      metrics: { projects: 8, experience: "1+ years" },
-      skills: [
-        { name: "Vercel", level: 70, category: "core" },
-        { name: "Netlify", level: 70, category: "core" },
+        { name: "Git / GitHub", level: 90, category: "expert" },
+        { name: "Agile / Scrum", level: 85, category: "expert" },
+        { name: "Code Reviews", level: 90, category: "expert" },
+        { name: "Debugging", level: 90, category: "expert" },
+        { name: "Unit Testing / TDD", level: 75, category: "core" },
+        { name: "API Integration", level: 90, category: "expert" },
       ]
     }
   ];
@@ -223,7 +225,7 @@ const Skills = () => {
           </div>
         </motion.div>
 
-        {/* Currently Learning */}
+        {/* Currently Focusing On */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -234,7 +236,7 @@ const Skills = () => {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600/10 dark:bg-blue-400/10 rounded-full">
             <Clock size={20} className="text-blue-600 dark:text-blue-400" />
             <span className="text-gray-700 dark:text-gray-300">
-              Currently Focusing on: Offline LLM's & Advanced AI Integration
+              Currently Focusing on: AWS, Azure, Docker & Advanced System Architecture
             </span>
           </div>
         </motion.div>

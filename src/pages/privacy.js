@@ -288,7 +288,7 @@ export default function Privacy() {
             <h2 className="text-2xl font-bold mb-4">Questions About Privacy?</h2>
             <p className="mb-6 text-blue-100">
               If you have any questions about this Privacy Policy or how your data is handled, 
-              please don't hesitate to contact us.
+              please don&apos;t hesitate to contact us.
             </p>
             <Link
               href="/#contact"

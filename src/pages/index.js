@@ -9,15 +9,14 @@ import Contact from '../components/sections/Contact';
 
 export default function Home() {
   return (
-    <div>
-      <div className="snap-section min-h-screen"><Hero /></div>
-      <div className="snap-section min-h-screen"><About /></div>
-      <div className="snap-section min-h-screen"><Skills /></div>
-  <div className="snap-section min-h-screen"><Projects /></div>
-  <div className="snap-section min-h-screen"><Experience /></div>
-  <div className="snap-section min-h-screen"><Articles /></div>
-      <div className="snap-section min-h-screen"><Contact /></div>
-      {/* Other sections will be added here */}
+    <div className="space-y-0">
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Articles />
+      <Contact />
     </div>
   );
 }

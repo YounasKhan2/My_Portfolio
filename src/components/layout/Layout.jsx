@@ -70,7 +70,7 @@ const Layout = ({ children }) => {
     <div className="relative min-h-screen bg-gray-50 dark:bg-[#0B1121] transition-colors duration-300">
       <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Sidebar />
-      <main className="pt-16 transition-colors duration-300">
+      <main className="transition-colors duration-300">
         {children}
       </main>
       <Footer />
